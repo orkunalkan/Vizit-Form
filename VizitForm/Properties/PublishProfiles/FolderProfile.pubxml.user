@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\inetpub\wwwroot\vizitform</_PublishTargetUrl>
+    <History>True|2021-09-21T13:23:47.7792035Z;True|2021-09-21T16:21:29.9318674+03:00;True|2021-09-21T16:20:58.3304481+03:00;True|2021-09-21T15:59:02.6208976+03:00;True|2021-09-21T15:55:54.7166785+03:00;True|2021-09-21T15:54:33.7595597+03:00;True|2021-09-21T15:52:49.8985312+03:00;True|2021-09-21T15:51:44.5266543+03:00;True|2021-09-21T15:49:22.7512498+03:00;True|2021-09-21T15:47:29.9046567+03:00;True|2021-09-21T15:42:27.3284311+03:00;True|2021-09-21T15:37:54.7615047+03:00;True|2021-09-21T15:34:02.1468970+03:00;False|2021-09-21T15:33:31.9908655+03:00;False|2021-09-21T15:32:46.6044520+03:00;True|2021-09-21T15:29:10.8967194+03:00;True|2021-09-21T15:20:22.6282372+03:00;True|2021-09-21T15:18:36.8296445+03:00;True|2021-09-21T15:09:55.6787360+03:00;True|2021-09-21T15:05:56.9484545+03:00;False|2021-09-21T15:04:56.2776125+03:00;True|2021-09-21T15:03:10.6781050+03:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="NLog.config">
+      <publishTime>08/19/2021 01:05:34</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

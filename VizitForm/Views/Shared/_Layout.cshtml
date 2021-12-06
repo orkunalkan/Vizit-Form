@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Randevu2</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @RenderSection("Head", required: false)
+    <style>
+        #forUL {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            color:white;
+        }
+        #forLIA {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            background-color: #333
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand"><b>Randevu Başvuru</b></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul id="forUL" class="navbar-nav flex-grow-1">
+                        <li id="forLIA"><a style="color:white" class="nav-item" href="/Randevu/Registers">Randevu</a></li>
+                        <li id="forLIA"><a style="color:white" class="nav-item" href="/Form/VizitForm">VizitForm</a></li>
+                        <li id="forLIA"><a style="color:white" class="nav-item" href="/FormTakip/TakipVizitForm">TakipVizitForm</a></li>
+                        <li id="forLIA"><a style="color:white" class="nav-item" href="/Arama/Search">Search</a></li>
+                        <li id="forLIA"><a style="color:white" class="nav-item" href="/Account/Index">Login</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Randevu - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

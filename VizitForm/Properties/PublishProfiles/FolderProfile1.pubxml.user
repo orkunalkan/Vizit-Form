@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <History>True|2021-09-21T13:28:55.6313294Z;True|2021-09-21T16:27:12.6079160+03:00;True|2021-09-21T16:25:27.7800791+03:00;False|2021-09-21T16:24:46.0552698+03:00;</History>
+    <_PublishTargetUrl>C:\inetpub\wwwroot\vizitform</_PublishTargetUrl>
+  </PropertyGroup>
+</Project>

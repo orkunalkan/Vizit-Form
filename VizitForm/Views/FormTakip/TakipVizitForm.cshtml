@@ -1,0 +1,3042 @@
+﻿@model VizitForm.Models.FormTakipDataModel;
+
+
+@{ ViewData["Title"] = "TakipVizitForm"; }
+
+
+<h4>Sistemik Skleroz Hastalarında Oto-Antikor ve Klinik Bulguların İlişkisi Takip Vizit Formu</h4>
+<hr />
+<div class="row">
+    <div class="container" style="border-style: solid; border-width: 1px; padding-top:5px; margin:20px;">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="text-align:right">
+                <label>Vizit Tarihi</label>
+                <input asp-for="vizitTarihiT" />
+                <span asp-validation-for="vizitTarihiT" class="text-danger"></span>
+            </div>
+            <div style="border-style: solid; border-width: 1px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    Çalışmaya Alınma Kriterleri
+                </h5>
+                <div class="container">
+                    <div class="row">
+                        <ol>
+
+                            <li>≥18 yaş</li>
+
+                            <li>
+                                ACR/EULAR 2013 Sistemik Skleroz (SSk) sınıflama kriterlerini karşılayan veya karşılamayıp
+                                “Early SSk”(Raynaud fenomeni ve SSk spesifikotoantikor ve SSk spektrum kapilleroskopi) kriterlerini
+                                karşılayan
+                            </li>
+
+                            <li>
+                                ACR/EULAR 2013 Sistemik Skleroz (SSk) sınıflama kriterlerini karşılayanlar için hastalık süresi
+                                ≤5 yıl (non-Raynaud semptomdan itibaren olan süre)
+                            </li>
+
+                        </ol>
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    Merkezler
+                </h5>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <input type="radio" value="Kocaeli Üniversitesi" asp-for="merkezT" />
+                            <span asp-validation-for="merkezT" class="text-danger"></span>
+                            Kocaeli Üniversitesi
+                        </div>
+
+                        <div class="col-sm">
+                            <input type="radio" value="Fırat Üniversitesi" asp-for="merkezT" />
+                            <span asp-validation-for="merkezT" class="text-danger"></span>
+                            Fırat Üniversitesi
+                        </div>
+
+                        <div class="col-sm">
+                            <input type="radio" value="Çukurova Üniversitesi" asp-for="merkezT" />
+                            <span asp-validation-for="merkezT" class="text-danger"></span>
+                            Çukurova Üniversitesi
+                        </div>
+
+                        <div class="col-sm">
+                            <input type="radio" value="Hacettepe Üniversitesi" asp-for="merkezT" />
+                            <span asp-validation-for="merkezT" class="text-danger"></span>
+                            Hacettepe Üniversitesi
+                        </div>
+
+                        <div class="col-sm">
+                            <input type="radio" value="Dokuz Eylül Üniversitesi" asp-for="merkezT" />
+                            <span asp-validation-for="merkezT" class="text-danger"></span>
+                            Dokuz Eylül Üniversitesi
+                        </div>
+
+                        <div class="col-sm">
+                            <input type="radio" value="Hatay Mustafa Kemal Üniversitesi" asp-for="merkezT" />
+                            <span asp-validation-for="merkezT" class="text-danger"></span>
+                            Hatay Mustafa Kemal Üniversitesi
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    Demografik Bilgiler
+                </h5>
+                <div class="container">
+                    <div class="row" style="color: black; padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm" style="border-right:solid 1px black;">
+                            <b>Meslek :</b>
+                            <input asp-for="meslekT" />
+                            <span asp-validation-for="meslekT" class="text-danger"></span>
+                        </div>
+                        &emsp;
+                        <div class="col-sm">
+                            <b>İkamet   :</b>
+                            Kent Merkezi <input type="radio" asp-for="ikametT" value="Kent Merkezi" />
+                            <span asp-validation-for="ikametT" class="text-danger"></span>
+                            &emsp;
+                            Kırsal <input type="radio" asp-for="ikametT" value="Kırsal" />
+                            <span asp-validation-for="ikametT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black; padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm" style="border-right:solid 1px black;">
+                            <b>Medeni Durum   :</b>
+                            Evli <input type="radio" asp-for="medeniDurumT" value="Evli" />
+                            <span asp-validation-for="medeniDurumT" class="text-danger"></span>
+                            &emsp;
+                            Bekar <input type="radio" asp-for="medeniDurumT" value="Bekar" />
+                            <span asp-validation-for="medeniDurumT" class="text-danger"></span>
+                        </div>
+                        &emsp;
+                        <div class="col-sm">
+                            <b>Çocuk Sayısı   :</b>
+                            <input type="number" asp-for="cocukSayisiT" />
+                            <span asp-validation-for="cocukSayisiT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row" style="color: black; padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Takip Durumu   :</b>
+                            Takipte <input type="radio" asp-for="takipDurumuT" value="İlkokul" />
+                            <span asp-validation-for="takipDurumuT" class="text-danger"></span>
+                            &emsp;
+                            Kayıp <input type="radio" asp-for="takipDurumuT" value="OrtaOkul" />
+                            <span asp-validation-for="takipDurumuT" class="text-danger"></span>
+                            &emsp;
+                            Başka merkezde takipte <input type="radio" asp-for="takipDurumuT" value="Lise" />
+                            <span asp-validation-for="takipDurumuT" class="text-danger"></span>
+                            &emsp;
+                            Öldü <input type="radio" asp-for="takipDurumuT" value="Lisans" />
+                            <span asp-validation-for="takipDurumuT" class="text-danger"></span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Ölüm tarihi : </b><input type="date" asp-for="olumTarihiT" />
+                            <span asp-validation-for="olumTarihiT" class="text-danger"></span>
+                            &emsp;
+                            <b>Ölüm sebebi : </b><input type="text" asp-for="olumDurumuT" />
+                            <span asp-validation-for="olumDurumuT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sigara   :</b>
+                            İçmemiş <input type="radio" asp-for="sigaraKullanımıT" value="İçmemiş" />
+                            <span asp-validation-for="sigaraKullanımıT" class="text-danger"></span>
+                            &emsp;
+                            Bırakmış <input type="radio" asp-for="sigaraKullanımıT" value="Bırakmış" />
+                            <span asp-validation-for="sigaraKullanımıT" class="text-danger"></span>
+                            &emsp;
+                            İçiyor <input type="radio" asp-for="sigaraKullanımıT" value="İçiyor" />
+                            <span asp-validation-for="sigaraKullanımıT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sigara paket yıl   :</b>
+                            <input type="number" asp-for="sigaraPaketiYıllıkT" />
+                            <span asp-validation-for="sigaraPaketiYıllıkT" class="text-danger"></span>
+                            &emsp;
+                            <b>Sigara Başlama Tarihi :</b>
+                            <input asp-for="sigaraBaslamaT" />
+                            <span asp-validation-for="sigaraBaslamaT" class="text-danger"></span>
+                            <b>Sigara Bırakma Tarihi :</b>
+                            <input asp-for="sigaraBitisT" />
+                            <span asp-validation-for="sigaraBitisT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Hane halkı:</b>
+                            <input type="number" asp-for="haneHalkiSayisiT" />
+                            <span asp-validation-for="haneHalkiSayisiT" class="text-danger"></span>
+                            &emsp;
+                            <b>Boy :</b>
+                            <input asp-for="boyT" />
+                            <span asp-validation-for="boyT" class="text-danger"></span>
+                            &emsp;
+                            <b>Kilo :</b>
+                            <input asp-for="kiloT" />
+                            <span asp-validation-for="kiloT" class="text-danger"></span>
+                            <b>BMI :</b>
+                            <input asp-for="bmiT" />
+                            <span asp-validation-for="bmiT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Menapoz   :</b>
+                            Evet <input type="radio" asp-for="sigaraKullanımıT" value="İçmemiş" />
+                            <span asp-validation-for="sigaraKullanımıT" class="text-danger"></span>
+                            &emsp;
+                            Hayır <input type="radio" asp-for="sigaraKullanımıT" value="Bırakmış" />
+                            <span asp-validation-for="sigaraKullanımıT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sosyal Güvence :</b>
+                            <select asp-for="sosyalGüvenceT">
+                                <option value="SGK" selected="selected" asp-for="sosyalGüvence">SGK</option>
+                                <option value="Özel" asp-for="sosyalGüvence">Özel</option>
+                                <option value="Yok" asp-for="sosyalGüvence">Yok</option>
+                            </select>
+                            <span asp-validation-for="sosyalGüvenceT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>İş Durum(kamu/özel sektör) :</b>
+                            <select asp-for="işDurumT">
+                                <option value="Tam Zamanlı">Tam Zamanlı</option>
+                                <option value="Yarı Zamanlı">Yarı Zamanlı</option>
+                                <option value="Ev Hanımı">Ev Hanımı</option>
+                                <option value="Öğrenci">Öğrenci</option>
+                                <option value="Emekli">Emekli</option>
+                                <option value="İşsiz">İşsiz</option>
+                                <option value="Engelli">Engelli</option>
+                                <option value="Diğer">Diğer</option>
+                            </select>
+                            <span asp-validation-for="işDurumT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        b>Gelir Düzeyi :</b>
+                        <ul>
+                            <
+                            <li>
+                                <input type="radio" asp-for="gelirDüzeyiT" value="Yoksul" />
+                                <span asp-validation-for="gelirDüzeyiT" class="text-danger"></span>
+                                Asgari ücret altı
+                            </li>
+                            <li>
+                                <input type="radio" asp-for="gelirDüzeyiT" value="Ortalamanın altı" />
+                                <span asp-validation-for="gelirDüzeyiT" class="text-danger"></span>
+                                Asgari ücret
+                            </li>
+                            <li>
+                                <input type="radio" asp-for="gelirDüzeyiT" value="Ortalama" />
+                                <span asp-validation-for="gelirDüzeyiT" class="text-danger"></span>
+                                Asgari ücretin 2 katı
+                            </li>
+                            <li>
+                                <input type="radio" asp-for="gelirDüzeyiT" value="Ortalamanın üstü" />
+                                <span asp-validation-for="gelirDüzeyiT" class="text-danger"></span>
+                                Asgari ücretin 3 katı
+                            </li>
+                            <li>
+                                <input type="radio" asp-for="gelirDüzeyiT" value="Çok iyi" />
+                                <span asp-validation-for="gelirDüzeyiT" class="text-danger"></span>
+                                Asgari ücretin 4 katı veya daha fazlası
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <b>Gelir Düzey Algısı :</b>
+                        <ul>
+                            <li>
+                                <input type="radio" asp-for="gelirDüzeyiT" value="Yoksul" />
+                                <span asp-validation-for="gelirDüzeyiT" class="text-danger"></span>
+                                Yoksul, ihtiyaçlarımı hiç karşılayamıyorum
+                            </li>
+                            <li>
+                                <input type="radio" asp-for="gelirDüzeyiT" value="Ortalamanın altı" />
+                                <span asp-validation-for="gelirDüzeyiT" class="text-danger"></span>
+                                Ortalamanın altı, önemli ihtiyaçlarımı karşılamakta zorlanıyorum
+                            </li>
+                            <li>
+                                <input type="radio" asp-for="gelirDüzeyiT" value="Ortalama" />
+                                <span asp-validation-for="gelirDüzeyiT" class="text-danger"></span>
+                                Ortalama, gelirim giderimi karşılıyor
+                            </li>
+                            <li>
+                                <input type="radio" asp-for="gelirDüzeyiT" value="Ortalamanın üstü" />
+                                <span asp-validation-for="gelirDüzeyiT" class="text-danger"></span>
+                                Ortalamanın üstü, ihtiyaçlarımı karşılamanın ötesinde birikim yapabilirim
+                            </li>
+                            <li>
+                                <input type="radio" asp-for="gelirDüzeyiT" value="Çok iyi" />
+                                <span asp-validation-for="gelirDüzeyiT" class="text-danger"></span>
+                                Çok iyi, zengin
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Gebelik :</b>
+                            <input type="radio" asp-for="gebelikT" value="Var" />
+                            <span asp-validation-for="gebelikT" class="text-danger"></span>
+                            Var
+                            <input type="radio" asp-for="gebelikT" value="Yok" />
+                            <span asp-validation-for="gebelikT" class="text-danger"></span>
+                            Yok
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Hastalık Sürecinde Gebelik :</b>
+                            <input type="radio" asp-for="hastalıkDogumDurumuT" value="Evet" />
+                            <span asp-validation-for="hastalıkDogumDurumuT" class="text-danger"></span>
+                            Evet
+                            <input type="radio" asp-for="hastalıkDogumDurumuT" value="Hayır" />
+                            <span asp-validation-for="hastalıkDogumDurumuT" class="text-danger"></span>
+                            Hayır
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Doğum Şekli :</b>
+                            <input type="radio" asp-for="dogumSekliT" value="Normal" />
+                            <span asp-validation-for="dogumSekliT" class="text-danger"></span>
+                            Normal
+                            <input type="radio" asp-for="dogumSekliT" value="Sexio" />
+                            <span asp-validation-for="dogumSekliT" class="text-danger"></span>
+                            Sexio
+                            <input type="radio" asp-for="dogumSekliT" value="Abortus" />
+                            <span asp-validation-for="dogumSekliT" class="text-danger"></span>
+                            Abortus
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Bebek Durumu :</b>
+                            <input type="radio" asp-for="bebekDurumuT" value="Sağlıklı" />
+                            <span asp-validation-for="bebekDurumuT" class="text-danger"></span>
+                            Sağlıklı
+                            <input type="radio" asp-for="bebekDurumuT" value="Anomali" />
+                            <span asp-validation-for="bebekDurumuT" class="text-danger"></span>
+                            Anomali
+                            <input type="radio" asp-for="bebekDurumuT" value="Düşük Doğum Ağırlığı" />
+                            <span asp-validation-for="bebekDurumuT" class="text-danger"></span>
+                            Düşük Doğum Ağırlığı
+                            <input type="radio" asp-for="bebekDurumuT" value="Ölü Doğum" />
+                            <span asp-validation-for="bebekDurumuT" class="text-danger"></span>
+                            Ölü Doğum
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    Özgeçmiş
+                </h5>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Ek Hastalık :</b>
+                            <input type="radio" asp-for="ekHastalıkT" value="Var" />
+                            <span asp-validation-for="ekHastalıkT" class="text-danger"></span>
+                            Var
+                            <input type="radio" asp-for="ekHastalıkT" value="Yok" />
+                            <span asp-validation-for="ekHastalıkT" class="text-danger"></span>
+                            Yok
+                            <input type="radio" asp-for="ekHastalıkT" value="Bilinmiyor" />
+                            <span asp-validation-for="ekHastalıkT" class="text-danger"></span>
+                            Bilinmiyor
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Overlap Sendromu :</b>
+                            <input type="radio" asp-for="overlapSendromT" value="Var" />
+                            <span asp-validation-for="overlapSendromT" class="text-danger"></span>
+                            Var
+                            <input type="radio" asp-for="overlapSendromT" value="Yok" />
+                            <span asp-validation-for="overlapSendromT" class="text-danger"></span>
+                            Yok
+                            <input type="radio" asp-for="overlapSendromT" value="Bilinmiyor" />
+                            <span asp-validation-for="overlapSendromT" class="text-danger"></span>
+                            Bilinmiyor
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Malignite :</b>
+                            <input type="radio" asp-for="maligniteT" value="Yok" />
+                            <span asp-validation-for="maligniteT" class="text-danger"></span>
+                            Yok
+                            <br />
+                            Var :
+                            <input type="radio" asp-for="maligniteT" value="Cilt Kanseri" />
+                            <span asp-validation-for="maligniteT" class="text-danger"></span>
+                            Cilt Kanseri
+                            <input type="radio" asp-for="maligniteT" value="Hematolojik" />
+                            <span asp-validation-for="maligniteT" class="text-danger"></span>
+                            Hematolojik
+                            <input type="radio" asp-for="maligniteT" value="Solid Organ" />
+                            <span asp-validation-for="maligniteT" class="text-danger"></span>
+                            Solid Organ
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    Soygeçmiş
+                </h5>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Ailede otoimmun hastalık :</b>
+                            <input type="radio" asp-for="ailedeOtoimmunT" value="Var" />
+                            <span asp-validation-for="ailedeOtoimmunT" class="text-danger"></span>
+                            Var
+                            <input type="radio" asp-for="ailedeOtoimmunT" value="Yok" />
+                            <span asp-validation-for="ailedeOtoimmunT" class="text-danger"></span>
+                            Yok
+                            <input type="radio" asp-for="ailedeOtoimmunT" value="Bilinmiyor" />
+                            <span asp-validation-for="ailedeOtoimmunT" class="text-danger"></span>
+                            Bilinmiyor
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Ailede malignite :</b>
+                            <input type="radio" asp-for="ailedeMaligniteT" value="Var" />
+                            <span asp-validation-for="ailedeMaligniteT" class="text-danger"></span>
+                            Var
+                            <input type="radio" asp-for="ailedeMaligniteT" value="Yok" />
+                            <span asp-validation-for="ailedeMaligniteT" class="text-danger"></span>
+                            Yok
+                            <input type="radio" asp-for="ailedeMaligniteT" value="Bilinmiyor" />
+                            <span asp-validation-for="ailedeMaligniteT" class="text-danger"></span>
+                            Bilinmiyor
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Cilt Kalınlaşması 1 :</b>
+                            <input type="radio" asp-for="ciltKalınlaşması1T" value="9" />
+                            <span asp-validation-for="ciltKalınlaşması1T" class="text-danger"></span>
+                            Bilateral MKF düzeyini aşan cilt kalınlaşması &emsp; 9 puan
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Cilt Kalınlaşması 2 :</b>
+                            <input type="radio" asp-for="ciltKalınlaşması2T" value="4" />
+                            <span asp-validation-for="ciltKalınlaşması2T" class="text-danger"></span>
+                            Bilateral MKF düzeyini aşmayan cilt &emsp; 4 puan
+                            <input type="radio" asp-for="ciltKalınlaşması2T" value="2" />
+                            <span asp-validation-for="ciltKalınlaşması2T" class="text-danger"></span>
+                            Puffy ödem &emsp; 2 puan
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Parmak Lezyonu :</b>
+                            <input type="radio" asp-for="parmakLezyonuT" value="2" />
+                            <span asp-validation-for="parmakLezyonuT" class="text-danger"></span>
+                            Dijital Ülser &emsp; 2 puan
+                            <input type="radio" asp-for="parmakLezyonuT" value="3" />
+                            <span asp-validation-for="parmakLezyonuT" class="text-danger"></span>
+                            Pitting Skar &emsp; 3 puan
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Telenijektazi :</b>
+                            <input type="radio" asp-for="telenijektaziT" value="2" />
+                            <span asp-validation-for="telenijektaziT" class="text-danger"></span>
+                            Var &emsp; 2 puan
+                            <input type="radio" asp-for="telenijektaziT" value="0" />
+                            <span asp-validation-for="telenijektaziT" class="text-danger"></span>
+                            Yok &emsp; 0 puan
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Anormal Tırnak :</b>
+                            <input type="radio" asp-for="anormalTırnakT" value="2" />
+                            <span asp-validation-for="anormalTırnakT" class="text-danger"></span>
+                            Var &emsp; 2 puan
+                            <input type="radio" asp-for="anormalTırnakT" value="0" />
+                            <span asp-validation-for="anormalTırnakT" class="text-danger"></span>
+                            Yok &emsp; 0 puan
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Akciğer Hastalığı :</b>
+                            <input type="radio" asp-for="akciğerHastalığıT" value="2" />
+                            <span asp-validation-for="akciğerHastalığıT" class="text-danger"></span>
+                            İnterstisyel akciğer hastalığı  &emsp; 2 puan
+                            <input type="radio" asp-for="akciğerHastalığıT" value="2" />
+                            <span asp-validation-for="akciğerHastalığıT" class="text-danger"></span>
+                            Pulmoner arteryal hipertansiyon &emsp; 2 puan
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Raynaud Fenomeni :</b>
+                            <input type="radio" asp-for="raynaudFenomeniT" value="3" />
+                            <span asp-validation-for="raynaudFenomeniT" class="text-danger"></span>
+                            Var &emsp; 3 puan
+                            <input type="radio" asp-for="raynaudFenomeniT" value="0" />
+                            <span asp-validation-for="raynaudFenomeniT" class="text-danger"></span>
+                            Yok &emsp; 0 puan
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Oto Antikorlar :</b>
+                            <input type="radio" asp-for="otoAntikorT" value="3" />
+                            <span asp-validation-for="otoAntikorT" class="text-danger"></span>
+                            Anti-Centromer &emsp; 3 puan
+                            <input type="radio" asp-for="otoAntikorT" value="3" />
+                            <span asp-validation-for="otoAntikorT" class="text-danger"></span>
+                            Anti-Topoizomeraz &emsp; 3 puan
+                            <input type="radio" asp-for="otoAntikorT" value="3" />
+                            <span asp-validation-for="otoAntikorT" class="text-danger"></span>
+                            Anti-RNAIII polimeraz &emsp; 3 puan
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    İlk semptomdeğerlendirme (Tüm öyküden ilk vizite kadarki sürede)
+                </h5>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Raynaud :</b>
+                            <input type="radio" asp-for="raynaudT" value="Evet" />
+                            <span asp-validation-for="raynaudT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="raynaudT" value="Hayır" />
+                            <span asp-validation-for="raynaudT" class="text-danger"></span>
+                            Hayır &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="raynaudTarihT" />
+                            <span asp-validation-for="raynaudTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Puffy Ödem :</b>
+                            <input type="radio" asp-for="puffyT" value="Evet" />
+                            <span asp-validation-for="puffyT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="puffyT" value="Hayır" />
+                            <span asp-validation-for="puffyT" class="text-danger"></span>
+                            Hayır &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="puffyTarihT" />
+                            <span asp-validation-for="puffyTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sklerodaktili :</b>
+                            <input type="radio" asp-for="sklerodaktiliT" value="Evet" />
+                            <span asp-validation-for="sklerodaktiliT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="sklerodaktiliT" value="Hayır" />
+                            <span asp-validation-for="sklerodaktiliT" class="text-danger"></span>
+                            Hayır &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="sklerodaktiliTarihT" />
+                            <span asp-validation-for="sklerodaktiliTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Pitting skar :</b>
+                            <input type="radio" asp-for="pittingT" value="Evet" />
+                            <span asp-validation-for="pittingT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="pittingT" value="Hayır" />
+                            <span asp-validation-for="pittingT" class="text-danger"></span>
+                            Hayır &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="pittingTarihT" />
+                            <span asp-validation-for="pittingTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Dijital ülser :</b>
+                            <input type="radio" asp-for="ülserT" value="Evet" />
+                            <span asp-validation-for="ülserT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="ülserT" value="Hayır" />
+                            <span asp-validation-for="ülserT" class="text-danger"></span>
+                            Hayır &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="ülserTarihT" />
+                            <span asp-validation-for="ülserTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Kalsinozis :</b>
+                            <input type="radio" asp-for="kalsinozisT" value="Evet" />
+                            <span asp-validation-for="kalsinozisT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="kalsinozisT" value="Hayır" />
+                            <span asp-validation-for="kalsinozisT" class="text-danger"></span>
+                            Hayır &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="kalsinozisTarihT" />
+                            <span asp-validation-for="kalsinozisTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Telenjiektazi :</b>
+                            <input type="radio" asp-for="telenjiektaziT" value="Evet" />
+                            <span asp-validation-for="telenjiektaziT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="telenjiektaziT" value="Hayır" />
+                            <span asp-validation-for="telenjiektaziT" class="text-danger"></span>
+                            Hayır &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="telenjiektaziTarihT" />
+                            <span asp-validation-for="telenjiektaziTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Gangren :</b>
+                            <input type="radio" asp-for="gangrenT" value="Evet" />
+                            <span asp-validation-for="gangrenT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="gangrenT" value="Hayır" />
+                            <span asp-validation-for="gangrenT" class="text-danger"></span>
+                            Hayır &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="gangrenTarihT" />
+                            <span asp-validation-for="gangrenTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>İnflamatuvar artrit :</b>
+                            <input type="radio" asp-for="inflamatuvarT" value="Evet" />
+                            <span asp-validation-for="inflamatuvarT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="inflamatuvarT" value="Hayır" />
+                            <span asp-validation-for="inflamatuvarT" class="text-danger"></span>
+                            Hayır &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="inflamatuvarTarihT" />
+                            <span asp-validation-for="inflamatuvarTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>İnterstisyel akciğer hastalığı :</b>
+                            <input type="radio" asp-for="interstisyelT" value="Evet" />
+                            <span asp-validation-for="interstisyelT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="interstisyelT" value="Hayır" />
+                            <span asp-validation-for="interstisyelT" class="text-danger"></span>
+                            Hayır &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="interstisyelTarihT" />
+                            <span asp-validation-for="interstisyelTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Miyozit :</b>
+                            <input type="radio" asp-for="miyozitT" value="Evet" />
+                            <span asp-validation-for="miyozitT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="miyozitT" value="Hayır" />
+                            <span asp-validation-for="miyozitT" class="text-danger"></span>
+                            Hayır &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="miyozitTarihT" />
+                            <span asp-validation-for="miyozitTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Pulmoner arteryal hipertansiyon :</b>
+                            <input type="radio" asp-for="pulmonerT" value="Evet" />
+                            <span asp-validation-for="pulmonerT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="pulmonerT" value="Hayır" />
+                            <span asp-validation-for="pulmonerT" class="text-danger"></span>
+                            Hayır &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="pulmonerTarihT" />
+                            <span asp-validation-for="pulmonerTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Skleroderma renal kriz :</b>
+                            <input type="radio" asp-for="sklerodermaT" value="Evet" />
+                            <span asp-validation-for="sklerodermaT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="sklerodermaT" value="Hayır" />
+                            <span asp-validation-for="sklerodermaT" class="text-danger"></span>
+                            Hayır &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="sklerodermaTarihT" />
+                            <span asp-validation-for="sklerodermaTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>GİS tutulumu :</b>
+                            <input type="radio" asp-for="gisT" value="Evet" />
+                            <span asp-validation-for="gisT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="gisT" value="Hayır" />
+                            <span asp-validation-for="gisT" class="text-danger"></span>
+                            Hayır &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="gisTarihT" />
+                            <span asp-validation-for="gisTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Eklem kontraktürü :</b>
+                            <input type="radio" asp-for="eklemT" value="Evet" />
+                            <span asp-validation-for="eklemT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="eklemT" value="Hayır" />
+                            <span asp-validation-for="eklemT" class="text-danger"></span>
+                            Hayır &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="eklemTarihT" />
+                            <span asp-validation-for="eklemTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Diğer :</b>
+                            <input type="radio" asp-for="diğerT" value="Evet" />
+                            <span asp-validation-for="diğerT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="diğerT" value="Hayır" />
+                            <span asp-validation-for="diğerT" class="text-danger"></span>
+                            Hayır &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="diğerTarihT" />
+                            <span asp-validation-for="diğerTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    Kas-iskelet sistemi bulguları (Tüm öyküden ilk vizite kadarki sürede)
+                </h5>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Ekstremite cerrahi ampütasyonu :</b>
+                            <input type="radio" asp-for="cerrahiAmpütasyonT" value="Var" />
+                            <span asp-validation-for="cerrahiAmpütasyonT" class="text-danger"></span>
+                            Var &emsp;
+                            <input type="radio" asp-for="cerrahiAmpütasyonT" value="Yok" />
+                            <span asp-validation-for="cerrahiAmpütasyonT" class="text-danger"></span>
+                            Yok &emsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Ekstremite-parmak oto-ampütasyonu :</b>
+                            <input type="radio" asp-for="otoAmpütasyonT" value="Var" />
+                            <span asp-validation-for="otoAmpütasyonT" class="text-danger"></span>
+                            Var &emsp;
+                            <input type="radio" asp-for="otoAmpütasyonT" value="Yok" />
+                            <span asp-validation-for="otoAmpütasyonT" class="text-danger"></span>
+                            Yok &emsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Kontraktür ( el parmak +/- el bileği ) :</b>
+                            <input type="radio" asp-for="kontraktürT" value="Var" />
+                            <span asp-validation-for="kontraktürT" class="text-danger"></span>
+                            Var &emsp;
+                            <input type="radio" asp-for="kontraktürT" value="Yok" />
+                            <span asp-validation-for="kontraktürT" class="text-danger"></span>
+                            Yok &emsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Diğer eklem kontraktürleri :</b>
+                            <input type="radio" asp-for="eklemKontraktürT" value="Var" />
+                            <span asp-validation-for="eklemKontraktürT" class="text-danger"></span>
+                            Var &emsp;
+                            <input type="radio" asp-for="eklemKontraktürT" value="Yok" />
+                            <span asp-validation-for="eklemKontraktürT" class="text-danger"></span>
+                            Yok &emsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>İnflamatuvar Artrit (Sinovit) :</b>
+                            <input type="radio" asp-for="inflamatuvarArtritT" value="Aktif" />
+                            <span asp-validation-for="inflamatuvarArtritT" class="text-danger"></span>
+                            Aktif &emsp;
+                            <input type="radio" asp-for="inflamatuvarArtritT" value="Yok" />
+                            <span asp-validation-for="inflamatuvarArtritT" class="text-danger"></span>
+                            Yok &emsp;
+                            <input type="radio" asp-for="inflamatuvarArtritT" value="Öyküde Var" />
+                            <span asp-validation-for="inflamatuvarArtritT" class="text-danger"></span>
+                            Öyküde Var &emsp;
+                            <input type="radio" asp-for="inflamatuvarArtritT" value="Bilinmiyor" />
+                            <span asp-validation-for="inflamatuvarArtritT" class="text-danger"></span>
+                            Bilinmiyor &emsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Tendon sürtünme sesi :</b>
+                            <input type="radio" asp-for="tendonSürtünmeT" value="Aktif" />
+                            <span asp-validation-for="tendonSürtünmeT" class="text-danger"></span>
+                            Aktif &emsp;
+                            <input type="radio" asp-for="tendonSürtünmeT" value="Yok" />
+                            <span asp-validation-for="tendonSürtünmeT" class="text-danger"></span>
+                            Yok &emsp;
+                            <input type="radio" asp-for="tendonSürtünmeT" value="Öyküde Var" />
+                            <span asp-validation-for="tendonSürtünmeT" class="text-danger"></span>
+                            Öyküde Var &emsp;
+                            <input type="radio" asp-for="tendonSürtünmeT" value="Bilinmiyor" />
+                            <span asp-validation-for="tendonSürtünmeT" class="text-danger"></span>
+                            Bilinmiyor &emsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Kas güçsüzlüğü :</b>
+                            <input type="radio" asp-for="kasGüçsüzT" value="Aktif" />
+                            <span asp-validation-for="kasGüçsüzT" class="text-danger"></span>
+                            Aktif &emsp;
+                            <input type="radio" asp-for="kasGüçsüzT" value="Yok" />
+                            <span asp-validation-for="kasGüçsüzT" class="text-danger"></span>
+                            Yok &emsp;
+                            <input type="radio" asp-for="kasGüçsüzT" value="Öyküde Var" />
+                            <span asp-validation-for="kasGüçsüzT" class="text-danger"></span>
+                            Öyküde Var &emsp;
+                            <input type="radio" asp-for="kasGüçsüzT" value="Bilinmiyor" />
+                            <span asp-validation-for="kasGüçsüzT" class="text-danger"></span>
+                            Bilinmiyor &emsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Kas astrofisi :</b>
+                            <input type="radio" asp-for="kasAtrofisiT" value="Aktif" />
+                            <span asp-validation-for="kasAtrofisiT" class="text-danger"></span>
+                            Aktif &emsp;
+                            <input type="radio" asp-for="kasAtrofisiT" value="Yok" />
+                            <span asp-validation-for="kasAtrofisiT" class="text-danger"></span>
+                            Yok &emsp;
+                            <input type="radio" asp-for="kasAtrofisiT" value="Öyküde Var" />
+                            <span asp-validation-for="kasAtrofisiT" class="text-danger"></span>
+                            Öyküde Var &emsp;
+                            <input type="radio" asp-for="kasAtrofisiT" value="Bilinmiyor" />
+                            <span asp-validation-for="kasAtrofisiT" class="text-danger"></span>
+                            Bilinmiyor &emsp;
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    Sindirim Sistemi Bulguları (Tüm öyküden ilk vizite kadar geçen süre için doldurunuz)
+                </h5>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Ağız kuruluğu :</b>
+                            <input type="radio" asp-for="agızKuruluguT" value="Aktif" />
+                            <span asp-validation-for="agızKuruluguT" class="text-danger"></span>
+                            Var &emsp;
+                            <input type="radio" asp-for="agızKuruluguT" value="Yok" />
+                            <span asp-validation-for="agızKuruluguT" class="text-danger"></span>
+                            Yok &emsp;
+                            <input type="radio" asp-for="agızKuruluguT" value="Bilinmiyor" />
+                            <span asp-validation-for="agızKuruluguT" class="text-danger"></span>
+                            Bilinmiyor &emsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Özefagus semptomları :</b>
+                            <input type="radio" asp-for="özefagusT" value="Aktif" />
+                            <span asp-validation-for="özefagusT" class="text-danger"></span>
+                            Var &emsp;
+                            <input type="radio" asp-for="özefagusT" value="Yok" />
+                            <span asp-validation-for="özefagusT" class="text-danger"></span>
+                            Yok &emsp;
+                            <input type="radio" asp-for="özefagusT" value="Reflü" />
+                            <span asp-validation-for="özefagusT" class="text-danger"></span>
+                            Reflü &emsp;
+                            <input type="radio" asp-for="özefagusT" value="Disfaji" />
+                            <span asp-validation-for="özefagusT" class="text-danger"></span>
+                            Disfaji &emsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Mide semptomları :</b>
+                            <input type="radio" asp-for="mideSemptomT" value="Aktif" />
+                            <span asp-validation-for="mideSemptomT" class="text-danger"></span>
+                            Var &emsp;
+                            <input type="radio" asp-for="mideSemptomT" value="Yok" />
+                            <span asp-validation-for="mideSemptomT" class="text-danger"></span>
+                            Yok &emsp;
+                            <input type="radio" asp-for="mideSemptomT" value="Bulantı" />
+                            <span asp-validation-for="mideSemptomT" class="text-danger"></span>
+                            Bulantı &emsp;
+                            <input type="radio" asp-for="mideSemptomT" value="Erken Doyma" />
+                            <span asp-validation-for="mideSemptomT" class="text-danger"></span>
+                            Erken Doyma &emsp;
+                            <input type="radio" asp-for="mideSemptomT" value="Kusma" />
+                            <span asp-validation-for="mideSemptomT" class="text-danger"></span>
+                            Kusma &emsp;
+                            <input type="radio" asp-for="mideSemptomT" value="Ekşime" />
+                            <span asp-validation-for="mideSemptomT" class="text-danger"></span>
+                            Ekşime &emsp;
+                            <input type="radio" asp-for="mideSemptomT" value="Yanma" />
+                            <span asp-validation-for="mideSemptomT" class="text-danger"></span>
+                            Yanma &emsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Barsak semptomları :</b>
+                            <input type="radio" asp-for="barsakSemptomT" value="Aktif" />
+                            <span asp-validation-for="barsakSemptomT" class="text-danger"></span>
+                            Var &emsp;
+                            <input type="radio" asp-for="barsakSemptomT" value="Yok" />
+                            <span asp-validation-for="barsakSemptomT" class="text-danger"></span>
+                            Yok &emsp;
+                            <input type="radio" asp-for="barsakSemptomT" value="Diare" />
+                            <span asp-validation-for="barsakSemptomT" class="text-danger"></span>
+                            Diare &emsp;
+                            <input type="radio" asp-for="barsakSemptomT" value="Şişkinlik" />
+                            <span asp-validation-for="barsakSemptomT" class="text-danger"></span>
+                            Şişkinlik &emsp;
+                            <input type="radio" asp-for="barsakSemptomT" value="Kabızlık" />
+                            <span asp-validation-for="barsakSemptomT" class="text-danger"></span>
+                            Kabızlık &emsp;
+                            <input type="radio" asp-for="barsakSemptomT" value="İnkontinas" />
+                            <span asp-validation-for="barsakSemptomT" class="text-danger"></span>
+                            İnkontinas &emsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Kilo kaybı :</b>
+                            <input type="number" asp-for="kiloKaybıT" value="Aktif" />
+                            <span asp-validation-for="kiloKaybıT" class="text-danger"></span>
+                            &emsp;
+                            <input type="radio" asp-for="kiloKaybıT" value="Yok" />
+                            <span asp-validation-for="kiloKaybıT" class="text-danger"></span>
+                            Yok &emsp;
+                            <input type="radio" asp-for="kiloKaybıT" value="Bilinmiyor" />
+                            <span asp-validation-for="kiloKaybıT" class="text-danger"></span>
+                            Bilinmiyor &emsp;
+                            <b>Maksimum Ağız Açıklığı :</b>
+                            <input type="number" asp-for="maksAgızT" />
+                            <span asp-validation-for="maksAgızT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    Gastrointestinal şikayetler nedeniyle daha önce yapılmış görüntülemeler
+                    (Tüm öyküden ilk vizite kadar geçen süre için doldurunuz)
+                </h5>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Özefagogram :</b>
+                            <select asp-for="özefagogramT">
+                                <option value="Yapılmadı">Yapılmadı</option>
+                                <option value="Normal">Normal</option>
+                                <option value="Distal diskinezi">Distal diskinezi</option>
+                                <option value="Hipotoni">Hipotoni</option>
+                                <option value="Yiyecek rezidüsü">Yiyecek rezidüsü</option>
+                                <option value="AÖS normal (GÖR yok)">AÖS normal (GÖR yok)</option>
+                                <option value="Özefagus mukozasında erozyon veya stenoz">Özefagus mukozasında erozyon veya stenoz</option>
+                                <option value="GÖR (Erozyon veya stenoz yok)">GÖR (Erozyon veya stenoz yok)</option>
+                            </select>
+                            <span asp-validation-for="özefagogramT" class="text-danger"></span>
+                            &emsp; <b>Tarih :</b>
+                            <input asp-for="özefagogramTarihT" />
+                            <span asp-validation-for="özefagogramTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sintigrafi :</b>
+                            <input type="radio" asp-for="gastroT" value="Yapıldı" />
+                            <span asp-validation-for="gastroT" class="text-danger"></span>
+                            Yapıldı &emsp;
+                            <input type="radio" asp-for="gastroT" value="Yapılmadı" />
+                            <span asp-validation-for="gastroT" class="text-danger"></span>
+                            Yapılmadı  &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="sintigrafiTarihT" />
+                            <span asp-validation-for="sintigrafiTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Transit Zamanı :</b>
+                            <input type="number" asp-for="sintigrafiTransitT" />
+                            <span asp-validation-for="sintigrafiTransitT" class="text-danger"></span>
+                            &emsp;<b>Boşalma Zamanı :</b>
+                            <input type="number" asp-for="sintigrafiBoşalmaT" />
+                            <span asp-validation-for="sintigrafiBoşalmaT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Özefago-gastro-duodenoskopi :</b>
+                            <input type="radio" asp-for="gastroT" value="Yapıldı" />
+                            <span asp-validation-for="gastroT" class="text-danger"></span>
+                            Yapıldı &emsp;
+                            <input type="radio" asp-for="gastroT" value="Yapılmadı" />
+                            <span asp-validation-for="gastroT" class="text-danger"></span>
+                            Yapılmadı  &emsp; <b>Tarih :</b>
+                            <input asp-for="gastroTarihT" />
+                            <span asp-validation-for="gastroTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <ul>
+                    <li>
+                        <b>Kardiak Hipotoni :</b>
+                        <input type="radio" asp-for="gastroKardiakT" value="Var" />
+                        <span asp-validation-for="gastroKardiakT" class="text-danger"></span>
+                        Var &emsp;
+                        <input type="radio" asp-for="gastroKardiakT" value="Yok" />
+                        <span asp-validation-for="gastroKardiakT" class="text-danger"></span>
+                        Yok &emsp;
+                        <input type="radio" asp-for="gastroKardiakT" value="Bilinmiyor" />
+                        <span asp-validation-for="gastroKardiakT" class="text-danger"></span>
+                        Bilinmiyor &emsp;
+                    </li>
+                    <li>
+                        <b>Özefajit :</b>
+                        <input type="radio" asp-for="gastroÖzefajitT" value="Var" />
+                        <span asp-validation-for="gastroÖzefajitT" class="text-danger"></span>
+                        Var &emsp;
+                        <input type="radio" asp-for="gastroÖzefajitT" value="Yok" />
+                        <span asp-validation-for="gastroÖzefajitT" class="text-danger"></span>
+                        Yok &emsp;
+                        <input type="radio" asp-for="gastroÖzefajitT" value="Bilinmiyor" />
+                        <span asp-validation-for="gastroÖzefajitT" class="text-danger"></span>
+                        Bilinmiyor &emsp;
+                    </li>
+                    <li>
+                        <b>Antral gastropati :</b>
+                        <input type="radio" asp-for="gastroAntralT" value="Var" />
+                        <span asp-validation-for="gastroAntralT" class="text-danger"></span>
+                        Var &emsp;
+                        <input type="radio" asp-for="gastroAntralT" value="Yok" />
+                        <span asp-validation-for="gastroAntralT" class="text-danger"></span>
+                        Yok &emsp;
+                        <input type="radio" asp-for="gastroAntralT" value="Bilinmiyor" />
+                        <span asp-validation-for="gastroAntralT" class="text-danger"></span>
+                        Bilinmiyor &emsp;
+                    </li>
+                    <li>
+                        <b>Vasküler ektazi :</b>
+                        <input type="radio" asp-for="gastroVaskülerT" value="Var" />
+                        <span asp-validation-for="gastroVaskülerT" class="text-danger"></span>
+                        Var &emsp;
+                        <input type="radio" asp-for="gastroVaskülerT" value="Yok" />
+                        <span asp-validation-for="gastroVaskülerT" class="text-danger"></span>
+                        Yok &emsp;
+                        <input type="radio" asp-for="gastroVaskülerT" value="Bilinmiyor" />
+                        <span asp-validation-for="gastroVaskülerT" class="text-danger"></span>
+                        Bilinmiyor &emsp;
+                    </li>
+                    <li>
+                        <b>Hiatal herni :</b>
+                        <input type="radio" asp-for="gastroHiatalT" value="Var" />
+                        <span asp-validation-for="gastroHiatalT" class="text-danger"></span>
+                        Var &emsp;
+                        <input type="radio" asp-for="gastroHiatalT" value="Yok" />
+                        <span asp-validation-for="gastroHiatalT" class="text-danger"></span>
+                        Yok &emsp;
+                        <input type="radio" asp-for="gastroHiatalT" value="Bilinmiyor" />
+                        <span asp-validation-for="gastroHiatalT" class="text-danger"></span>
+                        Bilinmiyor &emsp;
+                    </li>
+                    <li>
+                        <b>Barret :</b>
+                        <input type="radio" asp-for="gastroBarretT" value="Var" />
+                        <span asp-validation-for="gastroBarretT" class="text-danger"></span>
+                        Var &emsp;
+                        <input type="radio" asp-for="gastroBarretT" value="Yok" />
+                        <span asp-validation-for="gastroBarretT" class="text-danger"></span>
+                        Yok &emsp;
+                        <input type="radio" asp-for="gastroBarretT" value="Bilinmiyor" />
+                        <span asp-validation-for="gastroBarretT" class="text-danger"></span>
+                        Bilinmiyor &emsp;
+                    </li>
+                    <li>
+                        <b>Metaplazi :</b>
+                        <input type="radio" asp-for="gastroMetaplaziT" value="Var" />
+                        <span asp-validation-for="gastroMetaplaziT" class="text-danger"></span>
+                        Var &emsp;
+                        <input type="radio" asp-for="gastroMetaplaziT" value="Yok" />
+                        <span asp-validation-for="gastroMetaplaziT" class="text-danger"></span>
+                        Yok &emsp;
+                        <input type="radio" asp-for="gastroMetaplaziT" value="Bilinmiyor" />
+                        <span asp-validation-for="gastroMetaplaziT" class="text-danger"></span>
+                        Bilinmiyor &emsp;
+                    </li>
+                    <li>
+                        <b>Duodenit :</b>
+                        <input type="radio" asp-for="gastroDoudenitT" value="Var" />
+                        <span asp-validation-for="gastroDoudenitT" class="text-danger"></span>
+                        Var &emsp;
+                        <input type="radio" asp-for="gastroDoudenitT" value="Yok" />
+                        <span asp-validation-for="gastroDoudenitT" class="text-danger"></span>
+                        Yok &emsp;
+                        <input type="radio" asp-for="gastroDoudenitT" value="Bilinmiyor" />
+                        <span asp-validation-for="gastroDoudenitT" class="text-danger"></span>
+                        Bilinmiyor &emsp;
+                    </li>
+                </ul>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>İmpedans :</b>
+                            <input type="radio" asp-for="impedansT" value="Yapıldı" />
+                            <span asp-validation-for="impedansT" class="text-danger"></span>
+                            Yapıldı &emsp;
+                            <input type="radio" asp-for="impedansT" value="Yapılmadı" />
+                            <span asp-validation-for="impedansT" class="text-danger"></span>
+                            Yapılmadı  &emsp; <b>Tarih :</b>
+                            <input asp-for="impedansTarihT" />
+                            <span asp-validation-for="impedansTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>pHmetri :</b>
+                            <input type="number" asp-for="impedansPHT" />
+                            <span asp-validation-for="impedansPHT" class="text-danger"></span>
+                            &emsp;<b>İmpedenzametri :</b>
+                            <input type="number" asp-for="impedansPedenzaT" />
+                            <span asp-validation-for="impedansPedenzaT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Özefageal Manometri :</b>
+                            <input type="radio" asp-for="özefagealT" value="Yapıldı" />
+                            <span asp-validation-for="özefagealT" class="text-danger"></span>
+                            Yapıldı &emsp;
+                            <input type="radio" asp-for="özefagealT" value="Yapılmadı" />
+                            <span asp-validation-for="özefagealT" class="text-danger"></span>
+                            Yapılmadı  &emsp; <b>Tarih :</b>
+                            <input asp-for="özefagealTarihT" />
+                            <span asp-validation-for="özefagealTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <ul>
+                                <li style="margin:2px;">
+                                    <b>İntegre relaksasyon basıncı: :</b>
+                                    <input type="number" asp-for="özefagealBasınçT" />
+                                    <span asp-validation-for="özefagealBasınçT" class="text-danger"></span>
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Distal latency: :</b>
+                                    <input type="number" asp-for="özefagealLatencyT" />
+                                    <span asp-validation-for="özefagealLatencyT" class="text-danger"></span>
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Distal kontraktil integral :</b>
+                                    <input type="number" asp-for="özefagealKontraktilT" />
+                                    <span asp-validation-for="özefagealKontraktilT" class="text-danger"></span>
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Ortalama özefagogastrik junction basıncı :</b>
+                                    <input type="number" asp-for="özefagealOrtBasınçT" />
+                                    <span asp-validation-for="özefagealOrtBasınçT" class="text-danger"></span>
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Hipotansif özefagogastrik junction dinlenme basıncı :</b>
+                                    <input type="radio" asp-for="özefagealHipoBasınçT" value="Var" />
+                                    <span asp-validation-for="özefagealHipoBasınçT" class="text-danger"></span>
+                                    Var &emsp;
+                                    <input type="radio" asp-for="özefagealHipoBasınçT" value="Yok" />
+                                    <span asp-validation-for="özefagealHipoBasınçT" class="text-danger"></span>
+                                    Yok &emsp;
+                                    <input type="radio" asp-for="özefagealHipoBasınçT" value="Bilinmiyor" />
+                                    <span asp-validation-for="özefagealHipoBasınçT" class="text-danger"></span>
+                                    Bilinmiyor &emsp;
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Özefagus motilite bozukluğu şikago sınıflaması :</b>
+                                    <input type="number" asp-for="özefagealMotiliteT" />
+                                    <span asp-validation-for="özefagealMotiliteT" class="text-danger"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Rektal Manometri :</b>
+                            <input type="radio" asp-for="rektalT" value="Yapıldı" />
+                            <span asp-validation-for="rektalT" class="text-danger"></span>
+                            Yapıldı &emsp;
+                            <input type="radio" asp-for="rektalT" value="Yapılmadı" />
+                            <span asp-validation-for="rektalT" class="text-danger"></span>
+                            Yapılmadı  &emsp; <b>Tarih :</b>
+                            <input asp-for="rektalTarihT" />
+                            <span asp-validation-for="rektalTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Dinlenme basıncı :</b>
+                            <input type="number" asp-for="rektalDinlenmeBasıncıT" />
+                            <span asp-validation-for="rektalDinlenmeBasıncıT" class="text-danger"></span>
+                            &emsp;<b>Sıkma basıncı :</b>
+                            <input type="number" asp-for="rektalSıkmaBasıncıT" />
+                            <span asp-validation-for="rektalSıkmaBasıncıT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Kolonoskopi :</b>
+                            <input type="radio" asp-for="kolonoskopiT" value="Yapıldı" />
+                            <span asp-validation-for="kolonoskopiT" class="text-danger"></span>
+                            Yapıldı &emsp;
+                            <input type="radio" asp-for="kolonoskopiT" value="Yapılmadı" />
+                            <span asp-validation-for="kolonoskopiT" class="text-danger"></span>
+                            Yapılmadı  &emsp; <b>Tarih :</b>
+                            <input asp-for="kolonoskopiTarihT" />
+                            <span asp-validation-for="kolonoskopiTarihT" class="text-danger"></span>
+                            <hr />
+                            <ul>
+                                <li style="margin:2px;">
+                                    <b>Dilatasyon :</b>
+                                    <input type="radio" asp-for="kolonoskopiDilatasyonT" value="Var" />
+                                    <span asp-validation-for="kolonoskopiDilatasyonT" class="text-danger"></span>
+                                    Var &emsp;
+                                    <input type="radio" asp-for="kolonoskopiDilatasyonT" value="Yok" />
+                                    <span asp-validation-for="kolonoskopiDilatasyonT" class="text-danger"></span>
+                                    Yok &emsp;
+                                    <input type="radio" asp-for="kolonoskopiDilatasyonT" value="Bilinmiyor" />
+                                    <span asp-validation-for="kolonoskopiDilatasyonT" class="text-danger"></span>
+                                    Bilinmiyor &emsp;
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Divertikül :</b>
+                                    <input type="radio" asp-for="kolonoskopiDivertikülT" value="Var" />
+                                    <span asp-validation-for="kolonoskopiDivertikülT" class="text-danger"></span>
+                                    Var &emsp;
+                                    <input type="radio" asp-for="kolonoskopiDivertikülT" value="Yok" />
+                                    <span asp-validation-for="kolonoskopiDivertikülT" class="text-danger"></span>
+                                    Yok &emsp;
+                                    <input type="radio" asp-for="kolonoskopiDivertikülT" value="Bilinmiyor" />
+                                    <span asp-validation-for="kolonoskopiDivertikülT" class="text-danger"></span>
+                                    Bilinmiyor &emsp;
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Vasküler ektazi :</b>
+                                    <input type="radio" asp-for="kolonoskopiVaskülerT" value="Var" />
+                                    <span asp-validation-for="kolonoskopiVaskülerT" class="text-danger"></span>
+                                    Var &emsp;
+                                    <input type="radio" asp-for="kolonoskopiVaskülerT" value="Yok" />
+                                    <span asp-validation-for="kolonoskopiVaskülerT" class="text-danger"></span>
+                                    Yok &emsp;
+                                    <input type="radio" asp-for="kolonoskopiVaskülerT" value="Bilinmiyor" />
+                                    <span asp-validation-for="kolonoskopiVaskülerT" class="text-danger"></span>
+                                    Bilinmiyor &emsp;
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Polip :</b>
+                                    <input type="radio" asp-for="kolonoskopiPolipT" value="Var" />
+                                    <span asp-validation-for="kolonoskopiPolipT" class="text-danger"></span>
+                                    Var &emsp;
+                                    <input type="radio" asp-for="kolonoskopiPolipT" value="Yok" />
+                                    <span asp-validation-for="kolonoskopiPolipT" class="text-danger"></span>
+                                    Yok &emsp;
+                                    <input type="radio" asp-for="kolonoskopiPolipT" value="Bilinmiyor" />
+                                    <span asp-validation-for="kolonoskopiPolipT" class="text-danger"></span>
+                                    Bilinmiyor &emsp;
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Kolit :</b>
+                                    <input type="radio" asp-for="kolonoskopiKolitT" value="Var" />
+                                    <span asp-validation-for="kolonoskopiKolitT" class="text-danger"></span>
+                                    Var &emsp;
+                                    <input type="radio" asp-for="kolonoskopiKolitT" value="Yok" />
+                                    <span asp-validation-for="kolonoskopiKolitT" class="text-danger"></span>
+                                    Yok &emsp;
+                                    <input type="radio" asp-for="özefagealHipoBasınçT" value="Bilinmiyor" />
+                                    <span asp-validation-for="özefagealHipoBasınçT" class="text-danger"></span>
+                                    Bilinmiyor &emsp;
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    Skleroderma deri ülserleri
+                </h5>
+
+                <h6>&emsp;Tüm öyküden ilk vizite kadar geçen süre için doldurunuz</h6>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>PIF Distali :</b>
+                            <select asp-for="PifDistaliTümT">
+                                <option value="Komplikasyonsuz">Komplikasyonsuz</option>
+                                <option value="Komplikasyonlu">Komplikasyonlu</option>
+                                <option value="Gangren">Gangren</option>
+                                <option value="Osteomiyelit">Osteomiyelit</option>
+                                <option value="Enfeksiyon">Enfeksiyon</option>
+                            </select>
+                            <span asp-validation-for="PifDistaliTümT" class="text-danger"></span>
+                            &emsp;
+                            <b>Alt Ekstremite :</b>
+                            <select asp-for="AltEkstremiteTümT">
+                                <option value="Komplikasyonsuz">Komplikasyonsuz</option>
+                                <option value="Komplikasyonlu">Komplikasyonlu</option>
+                                <option value="Gangren">Gangren</option>
+                                <option value="Osteomiyelit">Osteomiyelit</option>
+                                <option value="Enfeksiyon">Enfeksiyon</option>
+                            </select>
+                            <span asp-validation-for="AltEkstremiteTümT" class="text-danger"></span>
+                            &emsp;
+                            <b>Diğer :</b>
+                            <select asp-for="DiğerTümT">
+                                <option value="Komplikasyonsuz">Komplikasyonsuz</option>
+                                <option value="Komplikasyonlu">Komplikasyonlu</option>
+                                <option value="Gangren">Gangren</option>
+                                <option value="Osteomiyelit">Osteomiyelit</option>
+                                <option value="Enfeksiyon">Enfeksiyon</option>
+                            </select>
+                            <span asp-validation-for="DiğerTümT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <h6>&emsp;Vizit sırasında aktif olan ülserler için doldurunuz</h6>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>PIF Distali :</b>
+                            <select asp-for="PifDistaliAktifT">
+                                <option value="Komplikasyonsuz">Komplikasyonsuz</option>
+                                <option value="Komplikasyonlu">Komplikasyonlu</option>
+                                <option value="Gangren">Gangren</option>
+                                <option value="Osteomiyelit">Osteomiyelit</option>
+                                <option value="Enfeksiyon">Enfeksiyon</option>
+                            </select>
+                            <span asp-validation-for="PifDistaliAktifT" class="text-danger"></span>
+                            &emsp;
+                            <b>Alt Ekstremite :</b>
+                            <select asp-for="AltEkstremiteAktifT">
+                                <option value="Komplikasyonsuz">Komplikasyonsuz</option>
+                                <option value="Komplikasyonlu">Komplikasyonlu</option>
+                                <option value="Gangren">Gangren</option>
+                                <option value="Osteomiyelit">Osteomiyelit</option>
+                                <option value="Enfeksiyon">Enfeksiyon</option>
+                            </select>
+                            <span asp-validation-for="AltEkstremiteAktifT" class="text-danger"></span>
+                            &emsp;
+                            <b>Diğer :</b>
+                            <select asp-for="DiğerAktifT">
+                                <option value="Komplikasyonsuz">Komplikasyonsuz</option>
+                                <option value="Komplikasyonlu">Komplikasyonlu</option>
+                                <option value="Gangren">Gangren</option>
+                                <option value="Osteomiyelit">Osteomiyelit</option>
+                                <option value="Enfeksiyon">Enfeksiyon</option>
+                            </select>
+                            <span asp-validation-for="DiğerAktifT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Aynı anda çıkan max aktif ülser sayısı (öyküde veya aktif) :</b>
+                            <input type="radio" asp-for="maxÜlserT" value="0" />
+                            <span asp-validation-for="maxÜlserT" class="text-danger"></span>
+                            0 &emsp;
+                            <input type="radio" asp-for="maxÜlserT" value="1-2" />
+                            <span asp-validation-for="maxÜlserT" class="text-danger"></span>
+                            1-2 &emsp;
+                            <input type="radio" asp-for="maxÜlserT" value="2-4" />
+                            <span asp-validation-for="maxÜlserT" class="text-danger"></span>
+                            2-4 &emsp;
+                            <input type="radio" asp-for="maxÜlserT" value=">4" />
+                            <span asp-validation-for="maxÜlserT" class="text-danger"></span>
+                            >4
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    Pulmoner tutulum- Interstisyel Akciğer Hastalığı (Tüm öyküden ilk vizite kadar geçen süre için doldurunuz)
+                </h5>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Interstisyel Akciğer Hastalığı :</b>
+                            <input type="radio" asp-for="interstisyelAkciğerT" value="Var" />
+                            <span asp-validation-for="interstisyelAkciğerT" class="text-danger"></span>
+                            Var &emsp;
+                            <input type="radio" asp-for="interstisyelAkciğerT" value="Yok" />
+                            <span asp-validation-for="interstisyelAkciğerT" class="text-danger"></span>
+                            Yok
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>İAH tanısı konulan veya en yakın HRCT tarihi :</b>
+                            <input asp-for="HRCTTarihT" />
+                            <span asp-validation-for="kolonoskopiTarihT" class="text-danger"></span>
+                            &emsp;
+                            <b>AH tanısı konulan veya en yakın SFT tarihi :</b>
+                            <input asp-for="SFTTarihT" />
+                            <span asp-validation-for="SFTTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <h6>
+                                İAH tanısı konulan HRCT bulguları :
+                                &emsp;
+                                İAH tanısı konulan SFT bulguları :
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <ul>
+                                <li style="margin:2px;">
+                                    <input type="checkbox" asp-for="buzluCamT" Text="Buzlu cam opasitesi" />
+                                    <span asp-validation-for="buzluCamT" class="text-danger"></span>
+                                    <b>Buzlu cam opasitesi :</b> &emsp;
+
+                                    <b>FVC% :</b>
+                                    <input type="number" asp-for="FVCT" />
+                                    <span asp-validation-for="FVCT" class="text-danger"></span>
+                                </li>
+                                <li style="margin:2px;">
+                                    <input type="checkbox" asp-for="balPeteğiT" Text="Bal peteği kistleri" />
+                                    <span asp-validation-for="balPeteğiT" class="text-danger"></span>
+                                    <b>Bal peteği kistleri :</b> &emsp;
+
+                                    <b>FEV1%  :</b>
+                                    <input type="number" asp-for="FEV1T" />
+                                    <span asp-validation-for="FEV1T" class="text-danger"></span>
+                                </li>
+                                <li style="margin:2px;">
+                                    <input type="checkbox" asp-for="retikülerDansiteT" Text="Retiküler dansite artışı" />
+                                    <span asp-validation-for="retikülerDansiteT" class="text-danger"></span>
+                                    <b>Retiküler dansite artışı :</b> &emsp;
+
+                                    <b>FEV1/FVC :</b>
+                                    <input type="number" asp-for="Fev1FvcT" />
+                                    <span asp-validation-for="Fev1FvcT" class="text-danger"></span>
+                                </li>
+                                <li style="margin:2px;">
+                                    <input type="checkbox" asp-for="traksiyonBronşiT" Text="Traksiyon bronşiektazisi" />
+                                    <span asp-validation-for="traksiyonBronşiT" class="text-danger"></span>
+                                    <b>Traksiyon bronşiektazisi :</b> &emsp;
+
+                                    <b>DLCO% :</b>
+                                    <input type="number" asp-for="DLCOT" />
+                                    <span asp-validation-for="DLCOT" class="text-danger"></span>
+                                </li>
+                                <li style="margin:2px;">
+                                    <input type="checkbox" asp-for="interlobulerSeptalT" Text="İnterlobuler septal kalınlaşma" />
+                                    <span asp-validation-for="interlobulerSeptalT" class="text-danger"></span>
+                                    <b>İnterlobuler septal kalınlaşma :</b> &emsp;
+
+                                    <b>DLCO/VA% :</b>
+                                    <input type="number" asp-for="DlcoVaT" />
+                                    <span asp-validation-for="DlcoVaT" class="text-danger"></span>
+                                </li>
+                                <li style="margin:2px;">
+                                    <input type="checkbox" asp-for="interstisyelKalınlaşmaT" Text="İnterstisyel kalınlaşma" />
+                                    <span asp-validation-for="interstisyelKalınlaşmaT" class="text-danger"></span>
+                                    <b>İnterstisyel kalınlaşma :</b> &emsp;
+
+                                    <b>TLCO% :</b>
+                                    <input type="number" asp-for="TLCOT" />
+                                    <span asp-validation-for="TLCOT" class="text-danger"></span>
+
+                                </li>
+                                <li style="margin:2px;">
+                                    <input type="checkbox" asp-for="digerBulgularT" Text="Diğer bulgular (plevral eff. vs)" />
+                                    <span asp-validation-for="digerBulgularT" class="text-danger"></span>
+                                    <b>Diğer bulgular (plevral eff. vs) :</b> &emsp;
+
+                                    <b>RV% :</b>
+                                    <input type="number" asp-for="RVT" />
+                                    <span asp-validation-for="RVT" class="text-danger"></span>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>PAAC grafisinde bibaziler fibrozis :</b>
+                            <input type="text" asp-for="PAACT" />
+                            <span asp-validation-for="PAACT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    Pulmoner tutulum- Pulmoner Arteryal Hipertansiyon (Tüm öyküden ilk vizite kadar geçen süre için doldurunuz)
+                </h5>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>PAH tanısı veya şüphesi ile kateterizasyon yapıldı mı?</b>
+                            <input type="radio" asp-for="PahKateterizasyonT" value="Evet" />
+                            <span asp-validation-for="PahKateterizasyonT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="PahKateterizasyonT" value="Hayır" />
+                            <span asp-validation-for="PahKateterizasyonT" class="text-danger"></span>
+                            Hayır &emsp;
+                            <b>Kaç Kez:</b>
+                            <input type="number" asp-for="PahKateterizasyonSayıT" />
+                            <span asp-validation-for="PahKateterizasyonSayıT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>PAH tanısı veya şüphesi ile yapılan kateter Tarihi:</b>
+                            <input type="date" asp-for="PahKateterizasyonTarihT" />
+                            <span asp-validation-for="PahKateterizasyonTarihT" class="text-danger"></span>
+                            &emsp;
+                            <input type="date" asp-for="EkoTarihiT" />
+                            <span asp-validation-for="EkoTarihiT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <h6>
+                                Sağ kalp kateterizasyonu bulguları :
+                                &emsp;
+                                EKO Bulguları :
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <ul>
+                                <li style="margin:2px;">
+
+                                    <b>Ortalama pulmoner arter basıncı :</b>
+                                    <input type="text" asp-for="sağArterT" />
+                                    <span asp-validation-for="sağArterT" class="text-danger"></span>
+                                    &emsp;
+
+                                    <b> Sağ ventrikül pik sistolik basınç :</b>
+                                    <input type="text" asp-for="ekoSistolikT" />
+                                    <span asp-validation-for="ekoSistolikT" class="text-danger"></span>
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Pulmoner kapiller uç basınç  :</b>
+                                    <input type="text" asp-for="sağPulmonerUçT" />
+                                    <span asp-validation-for="sağPulmonerUçT" class="text-danger"></span>
+                                    &emsp;
+
+                                    <b>Pulmoner arter basıncı :</b>
+                                    <input type="text" asp-for="ekoArterT" />
+                                    <span asp-validation-for="ekoArterT" class="text-danger"></span>
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Kardiak index  :</b>
+                                    <input type="text" asp-for="sağKardiakİndexT" />
+                                    <span asp-validation-for="sağKardiakİndexT" class="text-danger"></span>
+                                    &emsp;
+
+                                    <b>TRJ hızı :</b>
+                                    <input type="text" asp-for="ekoTrjT" />
+                                    <span asp-validation-for="ekoTrjT" class="text-danger"></span>
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Mikst venöz oksijen saturasyonu  :</b>
+                                    <input type="text" asp-for="sağMikstT" />
+                                    <span asp-validation-for="sağMikstT" class="text-danger"></span>
+                                    &emsp;
+
+                                    <b> Sağ atrium çapı  :</b>
+                                    <input type="text" asp-for="ekoAtriumT" />
+                                    <span asp-validation-for="ekoAtriumT" class="text-danger"></span>
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Sol vent end diastolik :</b>
+                                    <input type="text" asp-for="sağDiastolikT" />
+                                    <span asp-validation-for="sağDiastolikT" class="text-danger"></span>
+                                    &emsp;
+
+                                    <b>Ejeksiyon fraksiyonu :</b>
+                                    <input type="text" asp-for="ekoEjeksiyonT" />
+                                    <span asp-validation-for="ekoEjeksiyonT" class="text-danger"></span>
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Ortalama pulmoner arter basıncı  :</b>
+                                    <input type="text" asp-for="sağPulmonerVaskülerT" />
+                                    <span asp-validation-for="sağPulmonerVaskülerT" class="text-danger"></span>
+                                    &emsp;
+
+                                    <b>Sağ ventrikül çapı :</b>
+                                    <input type="text" asp-for="ekoVentrikülT" />
+                                    <span asp-validation-for="ekoVentrikülT" class="text-danger"></span>
+
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Pulmoner vasküler rezistans (birim yazınız) :</b>
+                                    <input type="text" asp-for="sağPulmonerVaskülerT" />
+                                    <span asp-validation-for="sağPulmonerVaskülerT" class="text-danger"></span>
+                                    &emsp;
+
+                                    <b>Perikardiyal sıvı :</b>
+                                    <input type="radio" asp-for="ekoPerikardiyalT" value="Var" />
+                                    <span asp-validation-for="ekoPerikardiyalT" class="text-danger"></span>
+                                    Var &emsp;
+                                    <input type="radio" asp-for="ekoPerikardiyalT" value="Yok" />
+                                    <span asp-validation-for="ekoPerikardiyalT" class="text-danger"></span>
+                                    Yok &emsp;
+                                    <input type="radio" asp-for="ekoPerikardiyalT" value="Bilinmiyor" />
+                                    <span asp-validation-for="ekoPerikardiyalT" class="text-danger"></span>
+                                    Bilinmiyor &emsp;
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Sağ atrium basıncı :</b>
+                                    <input type="text" asp-for="sağAtriumT" />
+                                    <span asp-validation-for="sağAtriumT" class="text-danger"></span>
+                                    &emsp;
+
+                                    <b>Kapak patolojisi (ayrıntılı yazınız) :</b>
+                                    <input type="text" asp-for="ekoKapakT" />
+                                    <span asp-validation-for="ekoKapakT" class="text-danger"></span>
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Arteryal saturasyon :</b>
+                                    <input type="text" asp-for="sağArteryalT" />
+                                    <span asp-validation-for="sağArteryalT" class="text-danger"></span>
+                                    &emsp;
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Sağ vent basıncı  :</b>
+                                    <input type="text" asp-for="sağVentT" />
+                                    <span asp-validation-for="sağVentT" class="text-danger"></span>
+                                    &emsp;
+                                </li>
+                                <li style="margin:2px;">
+                                    <b>Kardiyak output :</b>
+                                    <input type="text" asp-for="sağKardiyakOutT" />
+                                    <span asp-validation-for="sağKardiyakOutT" class="text-danger"></span>
+                                    &emsp;
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>PAH şüphesi ile sağ kalp kateteri yapılan hastalarda tanı konuldu mu?</b>
+                            <input type="radio" asp-for="pahT" value="Evet" />
+                            <span asp-validation-for="pahT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="pahT" value="Hayır" />
+                            <span asp-validation-for="pahT" class="text-danger"></span>
+                            Hayır &emsp;
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                </h5>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>
+                                Kateterizasyona en yakın (3 ay içindeki) Dünya Sağlık Örgütü fonksiyonel
+                                sınıflaması  :
+                            </b>
+                            <select asp-for="dso3AyT">
+                                <option value="Yok">Yok</option>
+                                <option value="Sınıf I">Sınıf I</option>
+                                <option value="Sınıf II">Sınıf II</option>
+                                <option value="Sınıf III">Sınıf III</option>
+                                <option value="Sınıf IV">Sınıf IV</option>
+                            </select>
+                            <span asp-validation-for="dso3AyT" class="text-danger"></span>
+                            &emsp; <b>Tarih :</b>
+                            <input asp-for="dso3AyTarihT" />
+                            <span asp-validation-for="dso3AyTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Mesafe (m) :</b>
+                            <input type="number" asp-for="kateter3AyMesafeT" />
+                            <span asp-validation-for="kateter3AyMesafeT" class="text-danger"></span>
+                            &emsp; <b>Tarih :</b>
+                            <input asp-for="kateter3AyTarihT" />
+                            <span asp-validation-for="kateter3AyTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>6 dakika yürüme testi başlangıç SO2 :</b>
+                            <input type="text" asp-for="kateter3AyYürümeBasT" />
+                            <span asp-validation-for="kateter3AyYürümeBasT" class="text-danger"></span>
+                            &emsp;
+                            <b>6 dakika yürüme testi bitiş SO2 :</b>
+                            <input type="text" asp-for="kateter3AyYürümeBitT" />
+                            <span asp-validation-for="kateter3AyYürümeBitT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Dünya Sağlık Örgütü fonksiyonel sınıflaması en son</b>
+                            <select asp-for="dsoSonT">
+                                <option value="Yok">Yok</option>
+                                <option value="Sınıf I">Sınıf I</option>
+                                <option value="Sınıf II">Sınıf II</option>
+                                <option value="Sınıf III">Sınıf III</option>
+                                <option value="Sınıf IV">Sınıf IV</option>
+                            </select>
+                            <span asp-validation-for="dsoSonT" class="text-danger"></span>
+                            &emsp; <b>Tarih :</b>
+                            <input asp-for="dsoSonTarihT" />
+                            <span asp-validation-for="dsoSonTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Mesafe (m) :</b>
+                            <input type="number" asp-for="kateterSonMesafeT" />
+                            <span asp-validation-for="kateterSonMesafeT" class="text-danger"></span>
+                            &emsp; <b>Tarih :</b>
+                            <input asp-for="kateterSonTarihT" />
+                            <span asp-validation-for="kateterSonTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>6 dakika yürüme testi başlangıç SO2 :</b>
+                            <input type="text" asp-for="kateterSonYürümeBasT" />
+                            <span asp-validation-for="kateterSonYürümeBasT" class="text-danger"></span>
+                            &emsp;
+                            <b>6 dakika yürüme testi bitiş SO2 :</b>
+                            <input type="text" asp-for="kateterSonYürümeBitT" />
+                            <span asp-validation-for="kateterSonYürümeBitT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                </h5>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Kateterizasyona en yakın (3 ay içindeki) BORG indeksi</b>
+                            <select asp-for="kateter3AyBORGT">
+                                <option value="Yok">Yok</option>
+                                <option value="0 - Hiç nefes darlığı yok ">0 - Hiç nefes darlığı yok </option>
+                                <option value="0,5 - Çok çok hafif nefes darlığı var">0,5 - Çok çok hafif nefes darlığı var</option>
+                                <option value="1 - Çok hafif">1 - Çok hafif</option>
+                                <option value="2 - Hafif">2 - Hafif</option>
+                                <option value="3 - Orta">3 - Orta</option>
+                                <option value="4 - Biraz şiddetli">4 - Biraz şiddetli</option>
+                                <option value="5 - Şiddetli">5 - Şiddetli</option>
+                                <option value="6 ">6 </option>
+                                <option value="7 - Çok şiddetli">7 - Çok şiddetli</option>
+                                <option value="8">8</option>
+                                <option value="9 - Çok çok şiddetli ">9 - Çok çok şiddetli </option>
+                                <option value="10 - Maksimal">10 - Maksimal</option>
+                            </select>
+                            <span asp-validation-for="kateter3AyBORGT" class="text-danger"></span>
+                            &emsp; <b>Tarih :</b>
+                            <input asp-for="kateter3AyBORGTarihT" />
+                            <span asp-validation-for="kateter3AyBORGTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>BORG indeksi en son</b>
+                            <select asp-for="kateterSonBORGT">
+                                <option value="Yok">Yok</option>
+                                <option value="0 - Hiç nefes darlığı yok ">0 - Hiç nefes darlığı yok </option>
+                                <option value="0,5 - Çok çok hafif nefes darlığı var">0,5 - Çok çok hafif nefes darlığı var</option>
+                                <option value="1 - Çok hafif">1 - Çok hafif</option>
+                                <option value="2 - Hafif">2 - Hafif</option>
+                                <option value="3 - Orta">3 - Orta</option>
+                                <option value="4 - Biraz şiddetli">4 - Biraz şiddetli</option>
+                                <option value="5 - Şiddetli">5 - Şiddetli</option>
+                                <option value="6 ">6 </option>
+                                <option value="7 - Çok şiddetli">7 - Çok şiddetli</option>
+                                <option value="8">8</option>
+                                <option value="9 - Çok çok şiddetli ">9 - Çok çok şiddetli </option>
+                                <option value="10 - Maksimal">10 - Maksimal</option>
+                            </select>
+                            <span asp-validation-for="kateterSonBORGT" class="text-danger"></span>
+                            &emsp; <b>Tarih :</b>
+                            <input asp-for="kateterSonBORGTarihT" />
+                            <span asp-validation-for="kateterSonBORGTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    Renal tutulum (Tüm öyküden ilk vizite kadar geçen süre için doldurunuz)
+                </h5>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Skleroderma renal kriz :</b>
+                            <input type="radio" asp-for="sklerodermaKrizT" value="Var" />
+                            <span asp-validation-for="sklerodermaKrizT" class="text-danger"></span>
+                            Var &emsp;
+                            <input type="radio" asp-for="sklerodermaKrizT" value="Yok" />
+                            <span asp-validation-for="sklerodermaKrizT" class="text-danger"></span>
+                            Yok &emsp;
+                            <b>Tarih :</b>
+                            <input asp-for="sklerodermaKrizTarihT" />
+                            <span asp-validation-for="sklerodermaKrizTarihT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Skleroderma renal kriz sırasında bulgular :</b>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Tansiyon (mmHg) :</b>
+                            <input type="text" asp-for="bulguTansiyonT" />
+                            <span asp-validation-for="bulguTansiyonT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Serum kreatinin (mg/dl) :</b>
+                            <input type="text" asp-for="bulguSerumT" />
+                            <span asp-validation-for="bulguSerumT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Trombosit (/mm³) :</b>
+                            <input type="text" asp-for="bulguTrombositT" />
+                            <span asp-validation-for="bulguTrombositT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Serum kreatinin (mg/dl) :</b>
+                            <input type="text" asp-for="bulguSerumT" />
+                            <span asp-validation-for="bulguSerumT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Proteinüri (24 sa. İdrar) :</b>
+                            <input type="text" asp-for="bulguProteinüriT" />
+                            <span asp-validation-for="bulguProteinüriT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Aktif idrar sedimi :</b>
+                            <input type="radio" asp-for="bulguİdrarSedimiT" value="Var" />
+                            <span asp-validation-for="bulguİdrarSedimiT" class="text-danger"></span>
+                            Var &emsp;
+                            <input type="radio" asp-for="bulguİdrarSedimiT" value="Yok" />
+                            <span asp-validation-for="bulguİdrarSedimiT" class="text-danger"></span>
+                            Yok &emsp;
+                            <input type="radio" asp-for="bulguİdrarSedimiT" value="Bilinmiyor" />
+                            <span asp-validation-for="bulguİdrarSedimiT" class="text-danger"></span>
+                            Bilinmiyor &emsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Periferik yaymada şistositler :</b>
+                            <input type="radio" asp-for="bulguPeriferikT" value="Var" />
+                            <span asp-validation-for="bulguPeriferikT" class="text-danger"></span>
+                            Var &emsp;
+                            <input type="radio" asp-for="bulguPeriferikT" value="Yok" />
+                            <span asp-validation-for="bulguPeriferikT" class="text-danger"></span>
+                            Yok &emsp;
+                            <input type="radio" asp-for="bulguPeriferikT" value="Bilinmiyor" />
+                            <span asp-validation-for="bulguPeriferikT" class="text-danger"></span>
+                            Bilinmiyor &emsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Renal biyopsi :</b>
+                            <input type="radio" asp-for="bulguRenalBiyopsiT" value="Var" />
+                            <span asp-validation-for="bulguRenalBiyopsiT" class="text-danger"></span>
+                            Var &emsp;
+                            <input type="radio" asp-for="bulguRenalBiyopsiT" value="Yok" />
+                            <span asp-validation-for="bulguRenalBiyopsiT" class="text-danger"></span>
+                            Yok &emsp;
+                            <input type="radio" asp-for="bulguRenalBiyopsiT" value="Bilinmiyor" />
+                            <span asp-validation-for="bulguRenalBiyopsiT" class="text-danger"></span>
+                            Bilinmiyor &emsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Renal biyopsi sonucu : </b>
+                            <input type="text" asp-for="bulguRenalBiyopsiSonucuT" />
+                            <span asp-validation-for="bulguRenalBiyopsiSonucuT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    Hemogram ve Biyokimya (son 3 ayda)&emsp;&emsp;&emsp;&emsp;
+                    <b>Tarih :</b>
+                    <input asp-for="hemogram3AyTarihT" />
+                    <span asp-validation-for="hemogram3AyTarihT" class="text-danger"></span>
+                </h5>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>AKŞ :</b>
+                            <input type="number" asp-for="AKŞT" />
+                            <span asp-validation-for="AKŞT" class="text-danger"></span>
+                            &emsp;
+                            <b>CRP :</b>
+                            <input type="number" asp-for="CRPT" />
+                            <span asp-validation-for="CRPT" class="text-danger"></span>
+                            &emsp;
+                            <b>NTproBNP :</b>
+                            <input type="number" asp-for="NTproBNPT" />
+                            <span asp-validation-for="NTproBNPT" class="text-danger"></span>
+                            &emsp;
+                            <b>C3 :</b>
+                            <input type="number" asp-for="C3T" />
+                            <span asp-validation-for="C3T" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Üre :</b>
+                            <input type="number" asp-for="ÜreT" />
+                            <span asp-validation-for="ÜreT" class="text-danger"></span>
+                            &emsp;
+                            <b>ESH :</b>
+                            <input type="number" asp-for="ESHT" />
+                            <span asp-validation-for="ESHT" class="text-danger"></span>
+                            &emsp;
+                            <b>BNP :</b>
+                            <input type="number" asp-for="BNPT" />
+                            <span asp-validation-for="BNPT" class="text-danger"></span>
+                            &emsp;
+                            <b>C4 :</b>
+                            <input type="number" asp-for="C4T" />
+                            <span asp-validation-for="C4T" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Kreatinin :</b>
+                            <input type="number" asp-for="KreatininT" />
+                            <span asp-validation-for="KreatininT" class="text-danger"></span>
+                            &emsp;
+                            <b>Lökosit :</b>
+                            <input type="number" asp-for="LökositT" />
+                            <span asp-validation-for="LökositT" class="text-danger"></span>
+                            &emsp;
+                            <b>Kreatini kinaz :</b>
+                            <input type="number" asp-for="KreKinazT" />
+                            <span asp-validation-for="KreKinazT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>ALT :</b>
+                            <input type="number" asp-for="ALTT" />
+                            <span asp-validation-for="ALTT" class="text-danger"></span>
+                            &emsp;
+                            <b>Hb :</b>
+                            <input type="number" asp-for="HbT" />
+                            <span asp-validation-for="HbT" class="text-danger"></span>
+                            &emsp;
+                            <b>Proteinüri :</b>
+                            <input type="radio" asp-for="ProteinüriT" value="Var" />
+                            <span asp-validation-for="ProteinüriT" class="text-danger"></span>
+                            Var &emsp;
+                            <input type="radio" asp-for="ProteinüriT" value="Yok" />
+                            <span asp-validation-for="ProteinüriT" class="text-danger"></span>
+                            Yok &emsp;
+                            <input type="radio" asp-for="ProteinüriT" value="Bilinmiyor" />
+                            <span asp-validation-for="ProteinüriT" class="text-danger"></span>
+                            Bilinmiyor
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>AST :</b>
+                            <input type="number" asp-for="ASTT" />
+                            <span asp-validation-for="ASTT" class="text-danger"></span>
+                            &emsp;
+                            <b>Trombosit :</b>
+                            <input type="number" asp-for="TrombositT" />
+                            <span asp-validation-for="TrombositT" class="text-danger"></span>
+                            &emsp;
+                            <b>*</b>
+                            <input type="radio" asp-for="idrarDurumT" value="24 saatlik idrar" />
+                            <span asp-validation-for="idrarDurumT" class="text-danger"></span>
+                            24 saatlik idrar &emsp;
+                            <input type="radio" asp-for="idrarDurumT" value="Spot idrarda" />
+                            <span asp-validation-for="idrarDurumT" class="text-danger"></span>
+                            Spot idrarda &emsp;
+                            <input type="radio" asp-for="idrarDurumT" value="TİT" />
+                            <span asp-validation-for="idrarDurumT" class="text-danger"></span>
+                            TİT
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    Ekokardiyografi (son 3 ayda)&emsp;&emsp;&emsp;&emsp;
+                    <b>Tarih :</b>
+                    <input asp-for="ekoKardiyoTarihT" />
+                    <span asp-validation-for="ekoKardiyoTarihT" class="text-danger"></span>
+                </h5>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sağ ventrikül pik sistolik basınç :</b>
+                            <input type="text" asp-for="ekoKarSağVentT" />
+                            <span asp-validation-for="ekoKarSağVentT" class="text-danger"></span>
+                            &emsp;
+                            <b>Pulmoner arter basınc :</b>
+                            <input type="text" asp-for="ekoKarPulmonerArterT" />
+                            <span asp-validation-for="ekoKarPulmonerArterT" class="text-danger"></span>
+                            <br />
+                            <hr />
+                            <b>TRJ hızı :</b>
+                            <input type="text" asp-for="ekoKarTRJhızıT" />
+                            <span asp-validation-for="ekoKarTRJhızıT" class="text-danger"></span>
+                            &emsp;
+                            <b>Sağ atrium çapı :</b>
+                            <input type="text" asp-for="ekoKarSağAtriumT" />
+                            <span asp-validation-for="ekoKarSağAtriumT" class="text-danger"></span>
+                            <br />
+                            <hr />
+                            <b>Ejeksiyon fraksiyonu :</b>
+                            <input type="text" asp-for="ekoKarEjeksiyonFraksiyonT" />
+                            <span asp-validation-for="ekoKarEjeksiyonFraksiyonT" class="text-danger"></span>
+                            &emsp;
+                            <b>Sağ ventrikül çapı :</b>
+                            <input type="text" asp-for="ekoKarSağVentrikülerT" />
+                            <span asp-validation-for="ekoKarSağVentrikülerT" class="text-danger"></span>
+                            <br />
+                            <hr />
+                            <b>Perikardiyal sıvı :</b>
+                            <input type="radio" asp-for="ekoKarPerikardiyalSıvıT" value="Var" />
+                            <span asp-validation-for="ekoKarPerikardiyalSıvıT" class="text-danger"></span>
+                            Var &emsp;
+                            <input type="radio" asp-for="ekoKarPerikardiyalSıvıT" value="Yok" />
+                            <span asp-validation-for="ekoKarPerikardiyalSıvıT" class="text-danger"></span>
+                            Yok &emsp;
+                            <input type="radio" asp-for="ekoKarPerikardiyalSıvıT" value="Bilinmiyor" />
+                            <span asp-validation-for="ekoKarPerikardiyalSıvıT" class="text-danger"></span>
+                            Bilinmiyor
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    Solunum fonksiyon testi (son 3 ayda)&emsp;&emsp;&emsp;&emsp;
+                    <b>Tarih :</b>
+                    <input asp-for="solunumFonksTarihT" />
+                    <span asp-validation-for="solunumFonksTarihT" class="text-danger"></span>
+                </h5>
+
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>FVC% :</b>
+                            <input type="text" asp-for="solunumFVCT" />
+                            <span asp-validation-for="solunumFVCT" class="text-danger"></span>
+                            &emsp;
+                            <b>FEV1% :</b>
+                            <input type="text" asp-for="solunumFEV1T" />
+                            <span asp-validation-for="solunumFEV1T" class="text-danger"></span>
+                            <br />
+                            <hr />
+                            <b>FEV1/FVC :</b>
+                            <input type="text" asp-for="solunumFev1FVCT" />
+                            <span asp-validation-for="solunumFev1FVCT" class="text-danger"></span>
+                            &emsp;
+                            <b>DLCO% :</b>
+                            <input type="text" asp-for="solunumDLCOT" />
+                            <span asp-validation-for="solunumDLCOT" class="text-danger"></span>
+                            <br />
+                            <hr />
+                            <b>DLCO/VA% :</b>
+                            <input type="text" asp-for="solunumDlcoVaT" />
+                            <span asp-validation-for="solunumDlcoVaT" class="text-danger"></span>
+                            &emsp;
+                            <b>TLCO% :</b>
+                            <input type="text" asp-for="solunumTLCOT" />
+                            <span asp-validation-for="solunumTLCOT" class="text-danger"></span>
+                            <br />
+                            <hr />
+                            <b>RV% :</b>
+                            <input type="text" asp-for="solunumRVT" value="Var" />
+                            <span asp-validation-for="solunumRVT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    HRCT (son 3 ayda)&emsp;&emsp;&emsp;&emsp;
+                    <b>Tarih :</b>
+                    <input asp-for="HRCT2TarihT" />
+                    <span asp-validation-for="HRCT2TarihT" class="text-danger"></span>
+                </h5>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <input type="checkbox" asp-for="HRCTBuzluCamT" value="Buzlu cam opasitesi" />
+                            <span asp-validation-for="HRCTBuzluCamT" class="text-danger"></span>
+                            Buzlu cam opasitesi &emsp;
+                            <input type="checkbox" asp-for="HRCTBalPetekT" value="Bal peteği kistleri" />
+                            <span asp-validation-for="HRCTBalPetekT" class="text-danger"></span>
+                            Bal peteği kistleri &emsp;
+                            <input type="checkbox" asp-for="HRCTRetikülerT" value="Retiküler dansite artışı" />
+                            <span asp-validation-for="HRCTRetikülerT" class="text-danger"></span>
+                            Retiküler dansite artışı &emsp;
+                            <input type="checkbox" asp-for="HRCTTraksiyonT" value="Traksiyon bronşiektazisi" />
+                            <span asp-validation-for="HRCTTraksiyonT" class="text-danger"></span>
+                            Traksiyon bronşiektazisi
+                            <br />
+                            <hr />
+                            <input type="checkbox" asp-for="HRCTİnterLobulerT" value="İnterlobuler septal kalınlaşma" />
+                            <span asp-validation-for="HRCTİnterLobulerT" class="text-danger"></span>
+                            İnterlobuler septal kalınlaşma &emsp;
+                            <input type="checkbox" asp-for="HRCTİnterstisyelT" value="İnterstisyel kalınlaşma" />
+                            <span asp-validation-for="HRCTİnterstisyelT" class="text-danger"></span>
+                            İnterstisyel kalınlaşma &emsp;
+                            <input type="checkbox" asp-for="HRCTDigerT" value="Diğer bulgular (plevral eff. vs)" />
+                            <span asp-validation-for="HRCTDigerT" class="text-danger"></span>
+                            Diğer bulgular (plevral eff. vs)
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Kapak patolojisi (ayrıntılı yazınız)</b>
+                            <input type="text" asp-for="kapakPatolojisiT" />
+                            <span asp-validation-for="kapakPatolojisiT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    <b>Kemik mineral dansitometrisi </b>&emsp;&emsp;
+                    <b>Tarih :</b>
+                    <input asp-for="kemikTarihT" />
+                    <span asp-validation-for="kemikTarihT" class="text-danger"></span>
+                </h5>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <input type="radio" asp-for="kemikMineralT" value="Var" />
+                            <span asp-validation-for="kemikMineralT" class="text-danger"></span>
+                            Var &emsp;
+                            <input type="radio" asp-for="kemikMineralT" value="Yok" />
+                            <span asp-validation-for="kemikMineralT" class="text-danger"></span>
+                            Yok
+                            <br />
+                            <hr />
+                            <b>Femur-T-skor :</b>
+                            <input type="number" asp-for="kemikFemurSkorT" />
+                            <span asp-validation-for="kemikFemurSkorT" class="text-danger"></span>
+                            &emsp;
+                            <b>L1-4-T-skor :</b>
+                            <input type="number" asp-for="kemikL1SkorT" />
+                            <span asp-validation-for="kemikL1SkorT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    <b>Kapilleroskopi</b> (En son vizitte veya en son kaydedilmiş olan; her iki el 2-4. parmaklardan 2’şer görüntülenmelidir)
+                </h5>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Tarih :</b>
+                            <input asp-for="kapilleroskopiTarihT" />
+                            <span asp-validation-for="kapilleroskopiTarihT" class="text-danger"></span>
+                            <br />
+                            <hr />
+                            <b>Kapilleroskopi cihazının markası :</b>
+                            <input type="text" asp-for="kapilleroskopiMarkaT" />
+                            <span asp-validation-for="kapilleroskopiMarkaT" class="text-danger"></span>
+                            &emsp;
+                            <b>Kapilleroskopi cihazının büyütmesi :</b>
+                            <input type="text" asp-for="kapilleroskopiBüyütmeT" />
+                            <span asp-validation-for="kapilleroskopiBüyütmeT" class="text-danger"></span>
+                            <br />
+                            <hr />
+                            <b>Kapilleroskopi sonucu :</b>
+                            <input type="radio" asp-for="kapilleroskopiSonucT" value="Normal" />
+                            <span asp-validation-for="kapilleroskopiSonucT" class="text-danger"></span>
+                            Normal &emsp;
+                            <input type="radio" asp-for="kapilleroskopiSonucT" value="SSc paterni var" />
+                            <span asp-validation-for="kapilleroskopiSonucT" class="text-danger"></span>
+                            SSc paterni var &emsp;
+                            <input type="radio" asp-for="kapilleroskopiSonucT" value="Nonspesifik" />
+                            <span asp-validation-for="kapilleroskopiSonucT" class="text-danger"></span>
+                            Nonspesifik
+                            <br />
+                            <hr />
+                            <b>Kapilleroskopi sonucu :</b>
+                            <input type="radio" asp-for="sklerodermaPaternT" value="Erken" />
+                            <span asp-validation-for="sklerodermaPaternT" class="text-danger"></span>
+                            Erken &emsp;
+                            <input type="radio" asp-for="sklerodermaPaternT" value="Aktif" />
+                            <span asp-validation-for="sklerodermaPaternT" class="text-danger"></span>
+                            Aktif &emsp;
+                            <input type="radio" asp-for="sklerodermaPaternT" value="Genç" />
+                            <span asp-validation-for="sklerodermaPaternT" class="text-danger"></span>
+                            Genç
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    <b>Modifiye Rodnan Cilt Skorlaması</b>
+                </h5>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Yüz</b>
+                            <select asp-for="yüzT">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="yüzT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sağ kol</b>
+                            <select asp-for="sağKolT">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="sağKolT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sol kol</b>
+                            <select asp-for="solKolT">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="solKolT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Göğüs</b>
+                            <select asp-for="göğüsT">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="göğüsT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Karın</b>
+                            <select asp-for="karınT">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="karınT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sağ ön kol</b>
+                            <select asp-for="sağÖnKolT">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="sağÖnKolT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sol ön kol</b>
+                            <select asp-for="solÖnKolT">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="solÖnKolT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sağ el</b>
+                            <select asp-for="sağElT">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="sağElT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sol el</b>
+                            <select asp-for="solElT">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="solElT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sağ parmaklar</b>
+                            <select asp-for="sağParmakT">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="sağParmakT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sol parmaklar</b>
+                            <select asp-for="solParmakT">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="solParmakT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sağ bacak</b>
+                            <select asp-for="sağBacakT">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="sağBacakT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sol bacak</b>
+                            <select asp-for="solBacakT">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="solBacakT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sağ baldır</b>
+                            <select asp-for="sağBaldırT">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="sağBaldırT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sol baldır</b>
+                            <select asp-for="solBaldırT">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="solBaldırT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sağ ayak</b>
+                            <select asp-for="sağAyakT">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="sağAyakT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Sol ayak</b>
+                            <select asp-for="solAyakT">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="solAyakT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    <b>EUSTAR aktivite indeksi</b>
+                </h5>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Δ-Cilt* :</b>
+                            <input type="radio" asp-for="eustarCiltT" value="Evet" />
+                            <span asp-validation-for="eustarCiltT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="eustarCiltT" value="Hayır" />
+                            <span asp-validation-for="eustarCiltT" class="text-danger"></span>
+                            Hayır &emsp;&emsp;
+                            <b>DLCO<%70 :</b>
+                            <input type="radio" asp-for="eustarDLCOT" value="Evet" />
+                            <span asp-validation-for="eustarDLCOT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="eustarDLCOT" value="Hayır" />
+                            <span asp-validation-for="eustarDLCOT" class="text-danger"></span>
+                            Hayır &emsp;&emsp;
+                            <br />
+                            <hr />
+                            <b>Dijital ülser :</b>
+                            <input type="radio" asp-for="eustarÜlserT" value="Evet" />
+                            <span asp-validation-for="eustarÜlserT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="eustarÜlserT" value="Hayır" />
+                            <span asp-validation-for="eustarÜlserT" class="text-danger"></span>
+                            Hayır &emsp;&emsp;
+                            <b>CRP>1 mg/dL :</b>
+                            <input type="radio" asp-for="eustarCRPT" value="Evet" />
+                            <span asp-validation-for="eustarCRPT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="eustarCRPT" value="Hayır" />
+                            <span asp-validation-for="eustarCRPT" class="text-danger"></span>
+                            Hayır &emsp;&emsp;
+                            <br />
+                            <hr />
+                            <b>Tendon sürtünme sesi :</b>
+                            <input type="radio" asp-for="eustarTendonT" value="Evet" />
+                            <span asp-validation-for="eustarTendonT" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="eustarTendonT" value="Hayır" />
+                            <span asp-validation-for="eustarTendonT" class="text-danger"></span>
+                            Hayır &emsp;&emsp;
+                            <b>mRCS>18 :</b>
+                            <input type="radio" asp-for="eustarmRCST" value="Evet" />
+                            <span asp-validation-for="eustarmRCST" class="text-danger"></span>
+                            Evet &emsp;
+                            <input type="radio" asp-for="eustarmRCST" value="Hayır" />
+                            <span asp-validation-for="eustarmRCST" class="text-danger"></span>
+                            Hayır &emsp;&emsp;
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    <b>
+                        Medsger Hastalık Ciddiyeti Ölçeği
+                    </b>
+                </h5>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Genel :</b>
+                            &emsp;
+                            <select asp-for="medsgerGenelKiloT">
+                                <option value="Normal kilo kaybı">Normal kilo kaybı</option>
+                                <option value="Hafif kilo kaybı">Hafif kilo kaybı</option>
+                                <option value="Orta kilo kaybı">Orta kilo kaybı</option>
+                                <option value="Ağır kilo kaybı">Ağır kilo kaybı</option>
+                                <option value="Son dönem kilo kaybı">Son dönem kilo kaybı</option>
+                            </select>
+                            <span asp-validation-for="medsgerGenelKiloT" class="text-danger"></span>
+                            <b>
+                                HCT
+                            </b>&emsp;
+                            <select asp-for="medsgerGenelHCTT">
+                                <option value="Normal HCT">Normal HCT</option>
+                                <option value="Hafif HCT">Hafif HCT</option>
+                                <option value="Orta HCT">Orta HCT</option>
+                                <option value="Ağır HCT">Ağır HCT</option>
+                                <option value="Son dönem HCT">Son dönem HCT</option>
+                            </select>
+                            <span asp-validation-for="medsgerGenelHCTT"></span>
+                            <b>
+                                HGB
+                            </b>&emsp;
+                            <select asp-for="medsgerGenelHGBT">
+                                <option value="Normal HGB">Normal HGB</option>
+                                <option value="Hafif HGB">Hafif HGB</option>
+                                <option value="Orta HGB">Orta HGB</option>
+                                <option value="Ağır HGB">Ağır HGB</option>
+                                <option value="Son dönem HGB">Son dönem HGB</option>
+                            </select>
+                            <span asp-validation-for="medsgerGenelHGBT"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>PeriferikVasküler</b> &emsp;
+                            <select asp-for="medsgerPeriferikVaskülerT">
+                                <option value="RF yok">RF yok</option>
+                                <option value="Tedavi gerektiren RF">Tedavi gerektiren RF</option>
+                                <option value="Pitting skar">Pitting skar</option>
+                                <option value="Dijital uç ülser">Dijital uç ülser</option>
+                                <option value="Dijital gangren">Dijital gangren</option>
+                            </select>
+                            <span asp-validation-for="medsgerPeriferikVaskülerT"></span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>
+                                Cilt
+                            </b>&emsp;
+                            <select asp-for="medsgerCiltT">
+                                <option value="mRSS=0">mRSS=0</option>
+                                <option value="mRSS=1-14">mRSS=1-14</option>
+                                <option value="mRSS=15-29">mRSS=15-29</option>
+                                <option value="mRSS=30-39">mRSS=30-39</option>
+                                <option value="mRSS≥40">mRSS≥40</option>
+                            </select>
+                            <span asp-validation-for="medsgerCiltT"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>
+                                Eklem/Tendon
+                            </b>&emsp;
+                            <select asp-for="medsgerEklemT">
+                                <option value="FTP=0-0,9 cm">FTP=0-0,9 cm</option>
+                                <option value="FTP=1-1,9 cm">FTP=1-1,9 cm </option>
+                                <option value="FTP=2-3,9 cm">FTP=2-3,9 cm</option>
+                                <option value="FTP=4-4,9 cm">FTP=4-4,9 cm</option>
+                                <option value="FTP>5 cm">FTP>5 cm</option>
+                            </select>
+                            <span asp-validation-for="medsgerEklemT"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>Kas</b> &emsp;
+                            <select asp-for="medsgerKasT">
+                                <option value="Kas gücü normal">Kas gücü normal</option>
+                                <option value="Hafif güçsüzlük">Hafif güçsüzlük</option>
+                                <option value="Orta güçsüzlük">Orta güçsüzlük</option>
+                                <option value="Ağır güçsüzlük">Ağır güçsüzlük</option>
+                                <option value="Yardımcı alet gereksinimi">Yardımcı alet gereksinimi</option>
+                            </select>
+                            <span asp-validation-for="medsgerKasT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>GI</b> &emsp;
+                            <select asp-for="medsgerGIT">
+                                <option value="Normal özefagogram">Normal özefagogram</option>
+                                <option value="Özefagus peristalsisi">Özefagus peristalsisi</option>
+                                <option value="Bakteriyel aşırı çoğalma için antibiyotik gereksinimi">Bakteriyel aşırı çoğalma için antibiyotik gereksinimi</option>
+                                <option value="Malabsorbsiyon,psödoabstrüksiyon">Malabsorbsiyon,psödoabstrüksiyon</option>
+                                <option value="Beslenme desteği gereksinimi">Beslenme desteği gereksinimi</option>
+                            </select>
+                            <span asp-validation-for="medsgerGIT" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>
+                                Akciğer
+                            </b>&emsp;
+                            <select asp-for="medsgerAkciğerT">
+                                <option value="Normal Değerler">Normal Değerler</option>
+                                <option value="Hafif Değerler">Hafif Değerler</option>
+                                <option value="Orta Değerler">Orta Değerler</option>
+                                <option value="Ağır Değerler">Ağır Değerler</option>
+                                <option value="Son dönem Değerler">Son dönem Değerler</option>
+                            </select>
+                            <span asp-validation-for="medsgerAkciğerT"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>
+                                Kalp
+                            </b>&emsp;
+                            <b>
+                                EKG :
+                            </b>&emsp;
+                            <select asp-for="medsgerKalpEKGT">
+                                <option value="EKG normal">EKG normal</option>
+                                <option value="EKG ileti defekt">EKG ileti defekt</option>
+                                <option value="EKG aritmi">EKG aritmi</option>
+                                <option value="EKG tedavi gerektiren aritmi">EKG tedavi gerektiren aritmi</option>
+                                <option value="Konjestif kalp yetmezliği">Konjestif kalp yetmezliği</option>
+                            </select>
+                            <span asp-validation-for="medsgerKalpEKGT"></span>
+                            <b>
+                                EF :
+                            </b>&emsp;
+                            <select asp-for="medsgerKalpEFT">
+                                <option value="EF normal">EF normal</option>
+                                <option value="EF hafif">EF hafif</option>
+                                <option value="EF orta">EF orta</option>
+                                <option value="EF ağır">EF ağır</option>
+                                <option value="EF son dönem">EF son dönem</option>
+                            </select>
+                            <span asp-validation-for="medsgerKalpEFT"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <b>
+                                Böbrek
+                            </b>&emsp;
+                            <select asp-for="medsgerBöbrekT">
+                                <option value="Normal Değerler">Normal Değerler</option>
+                                <option value="Hafif Değerler">Hafif Değerler</option>
+                                <option value="Orta Değerler">Orta Değerler</option>
+                                <option value="Ağır Değerler">Ağır Değerler</option>
+                                <option value="Son dönem Değerler">Son dönem Değerler</option>
+                            </select>
+                            <span asp-validation-for="medsgerBöbrekT"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-style: solid; border-width: 1px; margin-top:10px; padding-bottom:20px;">
+                <h5 style="color: black; padding-left: 10px; padding-bottom: 5px; background-color:lightgray">
+                    <b>
+                        SSc alt tipi*** (LeRoy)
+                    </b>
+                </h5>
+                <div class="container">
+                    <div class="row" style="color: black;  padding-bottom: 5px; margin-top: 5px;">
+                        <div class="col-sm">
+                            <br />
+                            <hr />
+                            <b>LeRoy :</b>
+                            <input type="radio" asp-for="SSCT" value="Sınırlı (limited)" />
+                            <span asp-validation-for="SSCT" class="text-danger"></span>
+                            Sınırlı (limited) &emsp;
+                            <input type="radio" asp-for="SSCT" value="Yaygın (diffüz)" />
+                            <span asp-validation-for="SSCT" class="text-danger"></span>
+                            Yaygın (diffüz) &emsp;
+                            <input type="radio" asp-for="SSCT" value=" Sine skleroderma" />
+                            <span asp-validation-for="SSCT" class="text-danger"></span>
+                            Sine skleroderma &emsp;
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            @ViewBag.message
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
